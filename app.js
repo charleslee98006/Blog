@@ -36,4 +36,7 @@ app.get('/article/:id', function(req, res) {
     res.render('article',{title:entry.title, blog:entry});
 });
 
-app.listen(3000);
+//this will solve uploading to heroku code10 error
+app.listen((process.env.PORT || 5000), function(){
+  console.log('listening on *:5000');
+});

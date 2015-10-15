@@ -1,8 +1,44 @@
-<h1>Blog!</h1>
+<!DOCTYPE html>
+<html lang="en" ng-app="blog">
+  <head>
+    <meta charset="utf-8">
+    <title>{{blog}}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <script src="/node_modules/angular/angular.js"></script>
+    <script src="core.js"></script>
+    <link rel="shortcut icon" href="#" />
 
-{{#each entries}}
-<p>
-<a href="/article/{{id}}">{{title}}</a><br/>
-Published: {{published}}
-</p>
-{{/each}}
+    <!-- Le styles -->
+
+  </head>
+
+  <body ng-controller='mainController'>
+
+    <p>Not {{blogs.length}}</p>
+             <!-- LOOP OVER THE TODOS IN $scope.todos -->
+                <div class="checkbox" ng-repeat="blog in blogs">
+                    <label>
+                        <input type="checkbox" ng-click="deleteBlog(blog._id)"> {{ blog.text }}
+                    </label>
+                </div>
+
+       <!-- FORM TO CREATE TODOS -->
+        <div id="todo-form" class="row">
+            <div class="col-sm-8 col-sm-offset-2 text-center">
+                <form>
+                    <div class="form-group">
+
+                        <!-- BIND THIS VALUE TO formData.text IN ANGULAR -->
+                        <input type="text" class="form-control input-lg text-center" placeholder="I want to buy a puppy that will love me forever" ng-model="formData.text">
+                    </div>
+
+                    <!-- createToDo() WILL CREATE NEW TODOS -->
+                    <button type="submit" class="btn btn-primary btn-lg" ng-click="createBlog()">Add</button>
+                </form>
+            </div>
+        </div>
+
+  </body>
+</html>

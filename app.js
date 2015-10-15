@@ -25,19 +25,41 @@ app.use(express.static('public'));
 
 
 
-	app.get('/api/movies', function(request, response){
-		Movie.find(function(err, blogs){
-			if(err){
-				response.send(err);
-			}
-			// data = blogs;
-			response.json(blogs);
-		});
-	});
+	// app.get('/api/movies', function(request, response){
+	// 	Movie.find(function(err, blogs){
+	// 		if(err){
+	// 			response.send(err);
+	// 		}
+	// 		// data = blogs;
+	// 		response.json(blogs);
+	// 	});
+	// });
+
+	//     // create todo and send back all todos after creation
+ //    app.post('/api/movies', function(req, res) {
+
+ //        // create a todo, information comes from AJAX request from Angular
+ //        Movie.create({
+ //            text : req.body.text,
+ //            done : false
+ //        }, function(err, blogs) {
+ //            if (err)
+ //                res.send(err);
+
+ //            // get and return all the todos after you create another
+ //            Movie.find(function(err, blogs) {
+ //                if (err)
+ //                    res.send(err)
+ //                res.json(blogs);
+ //            });
+ //        });
+
+ //    });
+
 
 app.get('/', function(request, response){
 	console.log(response);	
-  response.sendFile(__dirname + '/views/layout.html');
+  response.sendFile(__dirname + '/views/index.html');
 });
 
 // //this will solve uploading to heroku code10 error

@@ -53,6 +53,45 @@ module.exports = function(app) {
 	    });
 
     });
+  app.put('/api/movies/:blog_id', function (req, res) {
+	  //var id = req.params.id;
+	  //console.log("PRINTING ID:!!!!" + id);
+
+	  var body = "";
+
+    	req.on("data", function(data) {
+    		body += data.toString();
+    	});
+    console.log("BOODDYYYHEREEEEEE"+ body);
+    req.on("end", function() {
+	  Movie.update({
+	  	_id : req.params.blog_id
+	  },
+	  {
+	  	_id : req.params.blog_id,
+	  	text: body,
+	  },function(err, blog) {
+            if (err)
+                res.send(err);
+
+            // get and return all the todos after you create another
+            Movie.find(function(err, blogs) {
+                if (err)
+                    res.send(err)
+                res.json(blogs);
+            });
+        });
+
+	  // if (id >= 0 && id < data.posts.length) {
+	  //   data.posts[id] = req.body;
+	  //   res.json(true);
+	  // } else {
+	  //   res.json(false);
+	  // }
+	});
+});
+
+
 	// delete a todo
     app.delete('/api/movies/:blog_id', function(req, res) {
         Movie.remove({

@@ -1,10 +1,11 @@
 'use strict';
 
 
-var blogList = angular.module('blog', []).controller("mainController", mainController);
+var blogList = angular.module('blog', ["xeditable"]).controller("mainController", mainController);
 
 function mainController($scope, $http) {
-        // $scope.formData = {};
+    $scope.editing = [];
+    $scope.formData = {};
     $scope.foo = "FU";
 
     // Simple GET request example:
@@ -29,7 +30,6 @@ function mainController($scope, $http) {
           url: '/api/movies',
           data: $scope.formData
         }).then(function successCallback(response) {
-            var array = [];
             // this callback will be called asynchronously
             // when the response is available
                 //console.log($scope.formData);
@@ -42,6 +42,26 @@ function mainController($scope, $http) {
             // or server returns response with an error status.
             //console.log(response);
           });
+    };
+    $scope.update = function(id, data){
+          // $scope.form = {};
+          data= data.toString();
+          console.log("UPDATE DATA:!!!!!" + data);
+          $http({
+            method: 'PUT',
+            url: '/api/movies/' + id,
+            data: data}).
+            success(function(data) {
+                console.log(data);
+              // $scope.form = data.post;
+            });
+
+          // $scope.editPost = function (id) {
+          //   $http.put('/api/movies/' + id, $scope.form).
+          //     success(function(data) {
+          //       $location.url(id);
+          //     });
+          // };
     };
 
     // delete a todo after checking it

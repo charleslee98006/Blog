@@ -21,6 +21,7 @@ require('./modules/route')(app);
     app.use(methodOverride());
 
 app.use('/node_modules', express.static(__dirname + '/node_modules')); //need this path to get angular.js
+app.use('/bower_components', express.static(__dirname + '/bower_components'));
 app.use(express.static('public'));
 
 

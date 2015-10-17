@@ -6,7 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
+    <!-- // <script src="/node_modules/angular-resource/angular-resource.js"></script> -->
     <script src="/node_modules/angular/angular.js"></script>
+    <link href="bower_components/angular-xeditable/dist/css/xeditable.css" rel="stylesheet">
+    <script src="bower_components/angular-xeditable/dist/js/xeditable.js"></script>
     <script src="core.js"></script>
     <link rel="shortcut icon" href="#" />
 
@@ -20,8 +23,13 @@
              <!-- LOOP OVER THE TODOS IN $scope.todos -->
                 <div class="checkbox" ng-repeat="blog in blogs">
                     <label>
-                        <input type="checkbox" ng-click="deleteBlog(blog._id)"> {{ blog.text }}
+                        <input type="checkbox" ng-click="deleteBlog(blog._id)">
+                        <a href="#" editable-textarea="blog.text" e-rows="7" e-cols="40" onaftersave="update(blog._id, $data)">{{ blog.text }}</a>
                     </label>
+                  <button ng-show="!editing[$index]" ng-click="edit(blog._id)">edit</button>
+                  <input ng-show="editing[$index]" type="text" ng-model="blog.name">
+                  <button ng-show="editing[$index]" ng-click="update($index)">Update</button>
+                  <button ng-show="editing[$index]" ng-click="cancel($index)">Cancel</button>
                 </div>
 
        <!-- FORM TO CREATE TODOS -->

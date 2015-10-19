@@ -1,7 +1,7 @@
 'use strict';
 
 
-var blogList = angular.module('blog', ["xeditable"]).controller("mainController", mainController);
+var blogList = angular.module('blog', ["xeditable","ngRoute"]).controller("mainController", mainController);
 
 function mainController($scope, $http) {
     $scope.editing = [];
@@ -77,3 +77,12 @@ function mainController($scope, $http) {
     };
 
 }
+
+blogList.run(function ($rootScope, $location, $route, AuthService) {
+  $rootScope.$on('$routeChangeStart', function (event, next, current) {
+    if (next.access.restricted && AuthService.isLoggedIn() === false) {
+      $location.path('/login');
+      $route.reload();
+    }
+  });
+});

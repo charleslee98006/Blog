@@ -10,15 +10,38 @@
     <script src="/node_modules/angular/angular.js"></script>
     <link href="bower_components/angular-xeditable/dist/css/xeditable.css" rel="stylesheet">
     <script src="bower_components/angular-xeditable/dist/js/xeditable.js"></script>
+    <script src="/bower_components/angular-route/angular-route.js"></script>
     <script src="core.js"></script>
+    <script src="service.js"></script>
+    <script src="controller.js"></script>
     <link rel="shortcut icon" href="#" />
 
     <!-- Le styles -->
 
   </head>
 
-  <body ng-controller='mainController'>
+<body ng-controller='mainController'>
+<!--     <div ng-controller="logoutController">
+      <a ng-click='logout()' class="btn btn-default">Logout</a>
+    </div> -->
 
+    <div class="col-md-4" ng-controller = "loginController">
+  <h1>Login</h2>
+  <div ng-show="error" class="alert alert-danger"></div>
+  <form class="form" ng-submit="login()">
+    <div class="form-group">
+      <label>Username</label>
+      <input type="text" class="form-control" name="username" ng-model="loginForm.username" required>
+    </div>
+    <div class="form-group">
+      <label>Password</label>
+        <input type="password" class="form-control" name="password" ng-model="loginForm.password" required>
+      </div>
+      <div>
+        <button type="submit" class="btn btn-default" ng-disabled="disabled">Login</button>
+      </div>
+  </form>
+</div>
     <p>Not {{blogs.length}}</p>
              <!-- LOOP OVER THE TODOS IN $scope.todos -->
                 <div class="checkbox" ng-repeat="blog in blogs">
@@ -39,7 +62,7 @@
                     <div class="form-group">
 
                         <!-- BIND THIS VALUE TO formData.text IN ANGULAR -->
-                        <input type="text" class="form-control input-lg text-center" placeholder="I want to buy a puppy that will love me forever" ng-model="formData.text">
+                        <input type="text" class="form-control input-lg text-center" ng-model="formData.text">
                     </div>
 
                     <!-- createToDo() WILL CREATE NEW TODOS -->

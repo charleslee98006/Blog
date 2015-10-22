@@ -28,6 +28,7 @@ var routes = require('./routes/api.js');
 
 app.use('/node_modules', express.static(__dirname + '/node_modules')); //need this path to get angular.js
 app.use('/bower_components', express.static(__dirname + '/bower_components'));
+app.use('/views', express.static(__dirname+'/views'));
 app.use(express.static('public'));
 
 
@@ -81,7 +82,10 @@ app.get('/', function(request, response){
 	console.log(response);	
   response.sendFile(__dirname + '/views/index.html');
 });
-
+// app.get('/about', function(request, response){
+// 	console.log(response);	
+//   response.sendFile(__dirname + '/views/about/aboutMe.html');
+// });
 // //this will solve uploading to heroku code10 error
 app.listen((process.env.PORT || 5000), function(){
   console.log('listening on *:5000');

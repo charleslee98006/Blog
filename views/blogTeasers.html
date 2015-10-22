@@ -1,0 +1,30 @@
+<div>
+      <p>Not {{blogs.length}}</p>
+          <!-- LOOP OVER THE TODOS IN $scope.todos -->
+          <div class="checkbox" ng-repeat="blog in blogs">
+            <input type="checkbox" ng-click="deleteBlog(blog._id)">
+                <label>    
+                  <a href="#" editable-textarea="blog.text" e-rows="7" e-cols="40" onaftersave="update(blog._id, $data)">{{ blog.text }}</a>
+                </label>
+  <!--                   <button ng-show="!editing[$index]" ng-click="edit(blog._id)">edit</button>
+                    <input ng-show="editing[$index]" type="text" ng-model="blog.name">
+                    <button ng-show="editing[$index]" ng-click="update($index)">Update</button>
+                    <button ng-show="editing[$index]" ng-click="cancel($index)">Cancel</button> -->
+          </div>
+
+         <!-- FORM TO CREATE TODOS -->
+          <div id="todo-form" class="row">
+              <div class="col-sm-8 col-sm-offset-2 text-center">
+                  <form>
+                      <div class="form-group">
+
+                          <!-- BIND THIS VALUE TO formData.text IN ANGULAR -->
+                          <input type="text" class="form-control input-lg text-center" ng-model="formData.text">
+                      </div>
+
+                      <!-- createToDo() WILL CREATE NEW TODOS -->
+                      <button type="submit" class="btn btn-primary btn-lg" ng-click="createBlog()">Add</button>
+                  </form>
+              </div>
+          </div>
+    </div>

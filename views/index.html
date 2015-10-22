@@ -14,62 +14,58 @@
     <script src="core.js"></script>
     <script src="service.js"></script>
     <script src="controller.js"></script>
+    <link href="stylesheets/style.css" rel="stylesheet">
     <link rel="shortcut icon" href="#" />
 
     <!-- Le styles -->
 
   </head>
 
-<body ng-controller='mainController'>
-<!--     <div ng-controller="logoutController">
-      <a ng-click='logout()' class="btn btn-default">Logout</a>
-    </div> -->
+  <body ng-controller='mainController'>
+  <!--     <div ng-controller="logoutController">
+        <a ng-click='logout()' class="btn btn-default">Logout</a>
+      </div> -->        <!-- Sidebar ng-controller='PanelController as panel'>-->
+        
+        <div id="sidebar-wrapper" ng-init="tab=1">
 
-    <div class="col-md-4" ng-controller = "loginController">
-  <h1>Login</h2>
-  <div ng-show="error" class="alert alert-danger"></div>
-  <form class="form" ng-submit="login()">
-    <div class="form-group">
-      <label>Username</label>
-      <input type="text" class="form-control" name="username" ng-model="loginForm.username" required>
-    </div>
-    <div class="form-group">
-      <label>Password</label>
-        <input type="password" class="form-control" name="password" ng-model="loginForm.password" required>
-      </div>
-      <div>
-        <button type="submit" class="btn btn-default" ng-disabled="disabled">Login</button>
-      </div>
-  </form>
-</div>
-    <p>Not {{blogs.length}}</p>
-             <!-- LOOP OVER THE TODOS IN $scope.todos -->
-                <div class="checkbox" ng-repeat="blog in blogs">
-                  <input type="checkbox" ng-click="deleteBlog(blog._id)">
-                    <label>    
-                        <a href="#" editable-textarea="blog.text" e-rows="7" e-cols="40" onaftersave="update(blog._id, $data)">{{ blog.text }}</a>
-                    </label>
-<!--                   <button ng-show="!editing[$index]" ng-click="edit(blog._id)">edit</button>
-                  <input ng-show="editing[$index]" type="text" ng-model="blog.name">
-                  <button ng-show="editing[$index]" ng-click="update($index)">Update</button>
-                  <button ng-show="editing[$index]" ng-click="cancel($index)">Cancel</button> -->
-                </div>
-
-       <!-- FORM TO CREATE TODOS -->
-        <div id="todo-form" class="row">
-            <div class="col-sm-8 col-sm-offset-2 text-center">
-                <form>
-                    <div class="form-group">
-
-                        <!-- BIND THIS VALUE TO formData.text IN ANGULAR -->
-                        <input type="text" class="form-control input-lg text-center" ng-model="formData.text">
-                    </div>
-
-                    <!-- createToDo() WILL CREATE NEW TODOS -->
-                    <button type="submit" class="btn btn-primary btn-lg" ng-click="createBlog()">Add</button>
-                </form>
-            </div>
+          <section class="tab">
+              <ul class="sidebar-nav">
+                  <li class="sidebar-brand" ng-class="{active: tab==1}">
+                      <a href="#" ng-click="tab = 1">
+                          Home
+                      </a>
+                  </li>
+<!--                   <li ng-class="{'active': panel.isSelected(2)}">
+                      <a href="#" ng-click="panel.selectTab(2)">Projects</a>
+                  </li>
+                  <li ng-class="{'active': panel.isSelected(3)}">
+                      <a href="#" ng-click="panel.selectTab(3)">Blog</a>
+                  </li> -->
+                  <li ng-class="{'active': tab==4}">
+                      <a href="#" ng-click="tab = 4">About</a>
+                  </li>
+              </ul>
+            </section>
         </div>
 
+
+        
+        <!-- /#sidebar-wrapper -->
+    <!-- <side-main-menu-bar></side-main-menu-bar> -->
+    <div id = "bodyContent">
+      <div id= "mainMenu" ng-show='tab ==1'>
+          <div>
+            <p>Welcome</p>
+          </div>
+          <proj-teaser-coursel></proj-teaser-coursel>
+          <blog-teasers></blog-teasers>
+      </div>
+      <div ng-show='tab == 4'>
+        Hi its me!
+      </div>
+      <!--   <about-me></about-me> -->
+
+      <!-- <login></login> -->
+    </div>
   </body>
 </html>

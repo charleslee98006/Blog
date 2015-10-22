@@ -3,6 +3,53 @@
 
 var blogList = angular.module('blog', ["xeditable","ngRoute"]).controller("mainController", mainController);
 
+blogList.directive("sideMainMenuBar", function(){
+    return{
+        restrict:'E',
+        templateUrl: "views/menuBar.html"
+    }
+});
+blogList.directive("projTeaserCoursel", function(){
+    return{
+        restrict:'E',
+        templateUrl:"views/projectTeaserCorousel.html"
+    }
+});
+blogList.directive("blogTeasers", function(){
+    return{
+        restrict:'E',
+        templateUrl:"views/blogTeasers.html"
+    }
+});
+blogList.directive("login", function(){
+    return{
+        restrict:'E',
+        templateUrl:"views/login.html"
+    }
+});
+blogList.directive("aboutMe", function(){
+    return{
+        restrict:'E',
+        templateUrl:"views/about/aboutMe.html"
+    }
+});
+
+
+angular.module('blog').controller('PanelController', function(){
+  this.tab = 1;
+  this.selectTab = function(setTab){
+    
+    this.tab = setTab;
+    console.log("set to? " + this.tab);
+  }
+  this.isSelected = function(checkTab){
+    console.log("This "+ this.tab);
+    console.log(checkTab);
+    console.log("setting?" + angular.equals(this.tab, checkTab));
+    return this.tab === checkTab;
+  }
+});
+
 function mainController($scope, $http) {
     $scope.editing = [];
     $scope.formData = {};

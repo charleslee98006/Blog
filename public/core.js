@@ -89,10 +89,25 @@ angular.module('blog').controller('newBlogController',
         };
 
 }]);
-angular.module('blog').controller("blogTeaserController", 
+angular.module('blog').controller("blogTeasersController", 
     ['$scope', '$http',
     function($scope,$http){
         $scope.formData = {};
+        // Simple GET request example:
+        $http({
+          method: 'GET',
+          url: '/api/movies'
+        }).then(function successCallback(response) {
+            // this callback will be called asynchronously
+            // when the response is available
+            $scope.blogs = response.data;
+            //console.log(response);
+          }, function errorCallback(response) {
+            // called asynchronously if an error occurs
+            // or server returns response with an error status.
+            console.log('Error: ' + response);
+          });
+
 }]);
 angular.module('blog').controller("blogRestController", 
     ['$scope', '$http', 
@@ -100,19 +115,7 @@ angular.module('blog').controller("blogRestController",
     $scope.editing = [];
     $scope.formData = {};
     $scope.foo = "FU";
-    $http({
-      method: 'GET',
-      url: '/api/movies'
-    }).then(function successCallback(response) {
-        // this callback will be called asynchronously
-        // when the response is available
-        $scope.blogs = response.data;
-        //console.log(response);
-      }, function errorCallback(response) {
-        // called asynchronously if an error occurs
-        // or server returns response with an error status.
-        console.log('Error: ' + response);
-      });
+
 
     // Simple GET request example:
     $http({

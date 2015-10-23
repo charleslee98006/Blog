@@ -19,7 +19,10 @@ a {
 #wrapper.toggled {
     padding-left: 250px;
 }
-
+#SideMenu2{
+    width: 100px;
+    height: 200px;
+}
 #sidebar-wrapper {
     z-index: 1000;
     position: fixed;

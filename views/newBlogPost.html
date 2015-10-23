@@ -1,0 +1,19 @@
+<!-- 
+  <side-main-menu-bar></side-main-menu-bar> -->
+  <!-- //<div id="#sidebar-wrapper" ng-include = "/views/menuBar.html"></div> -->
+  <div id="blog-form" class="row" ng-controller='blogRestController'>
+    <div class="col-sm-8 col-sm-offset-2 text-center">	
+      <form>
+        <div class="form-group">
+        <!-- BIND THIS VALUE TO formData.text IN ANGULAR -->
+        <h2>Title: </h2>
+        
+        <input type="text" class="form-control input-lg text-center" ng-model="formData.text" name="title" size="100";>
+        <h2>Post: </h2>
+        <textarea rows="20" cols="100" ng-model="formTitle"></textarea>
+        </div>
+        <!-- createToDo() WILL CREATE NEW TODOS -->
+        <button type="submit" class="btn btn-primary btn-lg" ng-click="createBlog()">Add</button>
+      </form>
+    </div>
+  </div>

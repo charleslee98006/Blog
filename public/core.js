@@ -1,7 +1,7 @@
 'use strict';
 
 
-var blogList = angular.module('blog', ["xeditable","ngRoute"]).controller("mainController", mainController);
+var blogList = angular.module('blog', ["xeditable","ngRoute"]);
 
 blogList.directive("sideMainMenuBar", function(){
     return{
@@ -89,12 +89,30 @@ angular.module('blog').controller('newBlogController',
         };
 
 }]);
-
-
-function mainController($scope, $http) {
+angular.module('blog').controller("blogTeaserController", 
+    ['$scope', '$http',
+    function($scope,$http){
+        $scope.formData = {};
+}]);
+angular.module('blog').controller("blogRestController", 
+    ['$scope', '$http', 
+    function($scope, $http) {
     $scope.editing = [];
     $scope.formData = {};
     $scope.foo = "FU";
+    $http({
+      method: 'GET',
+      url: '/api/movies'
+    }).then(function successCallback(response) {
+        // this callback will be called asynchronously
+        // when the response is available
+        $scope.blogs = response.data;
+        //console.log(response);
+      }, function errorCallback(response) {
+        // called asynchronously if an error occurs
+        // or server returns response with an error status.
+        console.log('Error: ' + response);
+      });
 
     // Simple GET request example:
     $http({
@@ -164,7 +182,7 @@ function mainController($scope, $http) {
             });
     };
 
-}
+}]);
 
 blogList.run(function ($rootScope, $location, $route, AuthService) {
   $rootScope.$on('$routeChangeStart', function (event, next, current) {

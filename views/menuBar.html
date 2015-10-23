@@ -1,0 +1,24 @@
+        <div id="sidebar-wrapper" ng-init="tab=1">
+
+          <section class="tab">
+              <ul class="sidebar-nav">
+                  <li class="sidebar-brand" ng-class="{active: tab==1}">
+                      <a href="#" ng-click="tab = 1">
+                          Home
+                      </a>
+                  </li>
+                  <li ng-class="{'active': tab==2}">
+                      <a href="#" ng-click="tab=2">Projects</a>
+                  </li>
+                  <li ng-class="{'active': tab==3}">
+                      <a href="#" ng-click="tab = 3">Blog</a>
+                  </li>
+                  <li ng-class="{'active': tab==4}">
+                      <a href="#" ng-click="tab = 4">About</a>
+                  </li>
+                  <li ng-class="{'active': tab==5}">
+                      <a href="#" ng-click="tab = 5">Login</a>
+                  </li>
+              </ul>
+            </section>
+        </div>

@@ -2,10 +2,11 @@ angular.module('blog').controller('loginController',
   ['$scope', '$location', 'AuthService',
   function ($scope, $location, AuthService) {
 
-    console.log(AuthService.getUserStatus());
+    console.log("Users Status: " + AuthService.getUserStatus());
 
     $scope.login = function () {
       console.log("AUHT: "+AuthService);
+      console.log("Users Status: " + AuthService.getUserStatus());
       // initial values
       $scope.error = false;
       $scope.disabled = true;

@@ -33,6 +33,30 @@ blogList.directive("aboutMe", function(){
         templateUrl:"views/about/aboutMe.html"
     }
 });
+blogList.directive("mainPageContent", function(){
+    return{
+        restrict:'E',
+        templateUrl:"views/mainPageContent.html"
+    }
+});
+blogList.directive("mainPageTeasers", function(){
+    return{
+        restrict:'E',
+        templateUrl:"views/mainPageTeasers.html"
+    }
+});
+blogList.directive("projectContent", function(){
+    return{
+        restrict:'E',
+        templateUrl:"views/projects/projectContent.html"
+    }
+});
+blogList.directive("blogContent", function(){
+    return{
+        restrict:'E',
+        templateUrl:"views/blogs/blogContent.html"
+    }
+});
 
 
 angular.module('blog').controller('PanelController', function(){
@@ -49,6 +73,23 @@ angular.module('blog').controller('PanelController', function(){
     return this.tab === checkTab;
   }
 });
+
+angular.module('blog').controller('newBlogController', 
+    ['$scope','AuthService', 
+    function($scope, AuthService){
+        
+        //$scope.userStatus = true;
+        $scope.getUserStatus = function(){
+            return AuthService.getUserStatus();
+        };
+
+        $scope.newBlog = function(){
+            console.log("Users Status: " + AuthService.getUserStatus());
+
+        };
+
+}]);
+
 
 function mainController($scope, $http) {
     $scope.editing = [];

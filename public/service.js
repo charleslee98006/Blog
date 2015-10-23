@@ -2,7 +2,7 @@ angular.module('blog').factory('AuthService',
   ['$q', '$timeout', '$http',
   function ($q, $timeout, $http) {
     // create user variable
-    var user = null;
+    var user = false;
 
     // return available functions for use in controllers
     return ({
@@ -36,6 +36,7 @@ angular.module('blog').factory('AuthService',
       console.log("HERE???");
       if(status === 200 && data.status){
         user = true;
+        console.log("USER " + getUserStatus());
         deferred.resolve();
       } else {
         user = false;

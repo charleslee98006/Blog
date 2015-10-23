@@ -26,46 +26,11 @@
         <a ng-click='logout()' class="btn btn-default">Logout</a>
       </div> -->        <!-- Sidebar ng-controller='PanelController as panel'>-->
         
-        <div id="sidebar-wrapper" ng-init="tab=1">
-
-          <section class="tab">
-              <ul class="sidebar-nav">
-                  <li class="sidebar-brand" ng-class="{active: tab==1}">
-                      <a href="#" ng-click="tab = 1">
-                          Home
-                      </a>
-                  </li>
-<!--                   <li ng-class="{'active': panel.isSelected(2)}">
-                      <a href="#" ng-click="panel.selectTab(2)">Projects</a>
-                  </li>
-                  <li ng-class="{'active': panel.isSelected(3)}">
-                      <a href="#" ng-click="panel.selectTab(3)">Blog</a>
-                  </li> -->
-                  <li ng-class="{'active': tab==4}">
-                      <a href="#" ng-click="tab = 4">About</a>
-                  </li>
-              </ul>
-            </section>
-        </div>
 
 
         
         <!-- /#sidebar-wrapper -->
-    <!-- <side-main-menu-bar></side-main-menu-bar> -->
-    <div id = "bodyContent">
-      <div id= "mainMenu" ng-show='tab ==1'>
-          <div>
-            <p>Welcome</p>
-          </div>
-          <proj-teaser-coursel></proj-teaser-coursel>
-          <blog-teasers></blog-teasers>
-      </div>
-      <div ng-show='tab == 4'>
-        Hi its me!
-      </div>
-      <!--   <about-me></about-me> -->
-
-      <!-- <login></login> -->
-    </div>
+    <side-main-menu-bar></side-main-menu-bar>
+    <main-page-content></main-page-content>
   </body>
 </html>

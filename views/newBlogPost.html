@@ -1,7 +1,10 @@
+
+
+<!-- <div ng-view></div> -->
 <!-- 
   <side-main-menu-bar></side-main-menu-bar> -->
   <!-- //<div id="#sidebar-wrapper" ng-include = "/views/menuBar.html"></div> -->
-  <div id="blog-form" class="row" ng-controller='blogRestController'>
+  <div id="blog-form" class="row" ng-controller='blogPostController'>
     <div class="col-sm-8 col-sm-offset-2 text-center">	
       <form>
         <div class="form-group">
@@ -10,7 +13,7 @@
         
         <input type="text" class="form-control input-lg text-center" ng-model="formData.text" name="title" size="100";>
         <h2>Post: </h2>
-        <textarea rows="20" cols="100" ng-model="formTitle"></textarea>
+        <textarea rows="20" cols="100" ng-model="formBody"></textarea>
         </div>
         <!-- createToDo() WILL CREATE NEW TODOS -->
         <button type="submit" class="btn btn-primary btn-lg" ng-click="createBlog()">Add</button>

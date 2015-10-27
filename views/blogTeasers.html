@@ -1,10 +1,12 @@
 <div ng-controller = "blogTeasersController">
-      <p>Not {{blogs.length}}</p>
+      <p>{{blogs.length}} Blogs</p>
           <!-- LOOP OVER THE TODOS IN $scope.todos -->
-          <div class="checkbox" ng-repeat="blog in blogs">
-            <input type="checkbox" ng-click="deleteBlog(blog._id)">
+          <div ng-repeat="blog in blogs">
                 <label>    
-                  <a href="#" editable-textarea="blog.text" e-rows="7" e-cols="40" onaftersave="update(blog._id, $data)">{{ blog.text }}</a>
+                  <h2>{{ blog.title}}</h2>
+                  <p>{{ blog.text}}...</p>
+                  <p>Date:{{blog.date}} By:{{blog.author}}</p>
+                  
                 </label>
   <!--                   <button ng-show="!editing[$index]" ng-click="edit(blog._id)">edit</button>
                     <input ng-show="editing[$index]" type="text" ng-model="blog.name">
@@ -12,6 +14,5 @@
                     <button ng-show="editing[$index]" ng-click="cancel($index)">Cancel</button> -->
           </div>
 
-         <!-- FORM TO CREATE TODOS -->
 
     </div>

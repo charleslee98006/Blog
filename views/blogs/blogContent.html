@@ -1,5 +1,15 @@
-<div id="blogContent" ng-show="tab==3" ng-controller = "newBlogController">
+<div id="blogContent" ng-show="tab==3" ng-controller = "BlogController">
 	Blog HERE!
-	<a href="/newBlogPost" id="btnXX2" ng-click="newBlog()" ng-show="getUserStatus()">New Blog</a>
+	<a href="#/blogs/newBlogPost" id="btnXX2" ng-click="newBlog()" ng-show="getUserStatus()">New Blog</a>
 
+	<div class="checkbox" ng-repeat="blog in blogs">
+        <input type="checkbox" ng-click="deleteBlog(blog._id)">
+            <label>    
+                <a href="#" editable-textarea="blog.text" e-rows="7" e-cols="40" onaftersave="update(blog._id, $data)">{{ blog.text }}</a>
+            </label>
+  <!--                   <button ng-show="!editing[$index]" ng-click="edit(blog._id)">edit</button>
+                    <input ng-show="editing[$index]" type="text" ng-model="blog.name">
+                    <button ng-show="editing[$index]" ng-click="update($index)">Update</button>
+                    <button ng-show="editing[$index]" ng-click="cancel($index)">Cancel</button> -->
+    </div>
 </div>

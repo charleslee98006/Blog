@@ -22,15 +22,17 @@
   </head>
 
   <body>
+    <side-main-menu-bar></side-main-menu-bar>
+<!--   <a href="/about">about</a> -->
   <!--     <div ng-controller="logoutController">
         <a ng-click='logout()' class="btn btn-default">Logout</a>
       </div> -->        <!-- Sidebar ng-controller='PanelController as panel'>-->
-        
+      <div id='container'>  
+        <div ng-view></div>
 
-
-        
+      </div>  
         <!-- /#sidebar-wrapper -->
-    <side-main-menu-bar></side-main-menu-bar>
-    <main-page-content></main-page-content>
+     
+<!--     <main-page-content></main-page-content> -->
   </body>
 </html>

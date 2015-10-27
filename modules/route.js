@@ -13,7 +13,7 @@ var Movie = mongoose.model('movies', movieSchema);
 
 module.exports = function(app) {
 	
-	app.get('/api/movies', function(request, response){
+	app.get('/api/blogs', function(request, response){
 		Movie.find(function(err, blogs){
 			if(err){
 				response.send(err);
@@ -23,7 +23,7 @@ module.exports = function(app) {
 		});
 	});
 
-    app.post('/api/movies', function(req, res) {
+    app.post('/api/blogs', function(req, res) {
 
     	var body = "";
 
@@ -53,7 +53,7 @@ module.exports = function(app) {
 	    });
 
     });
-  app.put('/api/movies/:blog_id', function (req, res) {
+  app.put('/api/blogs/:blog_id', function (req, res) {
 	  //var id = req.params.id;
 	  //console.log("PRINTING ID:!!!!" + id);
 
@@ -93,7 +93,7 @@ module.exports = function(app) {
 
 
 	// delete a todo
-    app.delete('/api/movies/:blog_id', function(req, res) {
+    app.delete('/api/blogs/:blog_id', function(req, res) {
         Movie.remove({
             _id : req.params.blog_id
         }, function(err, blog) {

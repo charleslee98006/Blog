@@ -3,6 +3,44 @@
 
 var blogList = angular.module('blog', ["xeditable","ngRoute"]);
 
+blogList.config(function($routeProvider) { 
+        $routeProvider
+
+            // route for the home page
+            .when('/', {
+                templateUrl : '/views/mainPageContent.html'
+            })
+            .when('/projects',{
+                templateUrl : '/views/projects/projectContent.html'
+            })
+            // route for the about page
+            .when('/about', {
+                templateUrl : '/views/about/aboutMe.html'
+            })
+            .when('/blogs',{
+                templateUrl : '/views/blogs/blogContent.html'  
+            })
+            .when('/login',{
+                templateUrl : '/views/login.html'  
+            })
+            .when('/blogs/newBlogPost',{
+                templateUrl : 'views/newBlogPost.html'
+            })
+            .otherwise({
+                redirectTo: '/'
+            });
+
+            // route for the contact page
+            // .when('/contact', {
+            //     templateUrl : '/contact.html',
+            //     controller  : 'contactController'
+            // });
+// Read more at http:
+//www.tutorialsavvy.com/2013/08/understanding-partials-in-angularjs.html/#OUFiSgAgW8coMlqc.99
+});
+
+
+
 blogList.directive("sideMainMenuBar", function(){
     return{
         restrict:'E',
@@ -21,42 +59,42 @@ blogList.directive("blogTeasers", function(){
         templateUrl:"views/blogTeasers.html"
     }
 });
-blogList.directive("login", function(){
-    return{
-        restrict:'E',
-        templateUrl:"views/login.html"
-    }
-});
-blogList.directive("aboutMe", function(){
-    return{
-        restrict:'E',
-        templateUrl:"views/about/aboutMe.html"
-    }
-});
-blogList.directive("mainPageContent", function(){
-    return{
-        restrict:'E',
-        templateUrl:"views/mainPageContent.html"
-    }
-});
+// blogList.directive("login", function(){
+//     return{
+//         restrict:'E',
+//         templateUrl:"views/login.html"
+//     }
+// });
+// blogList.directive("aboutMe", function(){
+//     return{
+//         restrict:'E',
+//         templateUrl:"views/about/aboutMe.html"
+//     }
+// });
+// blogList.directive("mainPageContent", function(){
+//     return{
+//         restrict:'E',
+//         templateUrl:"views/mainPageContent.html"
+//     }
+// });
 blogList.directive("mainPageTeasers", function(){
     return{
         restrict:'E',
         templateUrl:"views/mainPageTeasers.html"
     }
 });
-blogList.directive("projectContent", function(){
-    return{
-        restrict:'E',
-        templateUrl:"views/projects/projectContent.html"
-    }
-});
-blogList.directive("blogContent", function(){
-    return{
-        restrict:'E',
-        templateUrl:"views/blogs/blogContent.html"
-    }
-});
+// blogList.directive("projectContent", function(){
+//     return{
+//         restrict:'E',
+//         templateUrl:"views/projects/projectContent.html"
+//     }
+// });
+// blogList.directive("blogContent", function(){
+//     return{
+//         restrict:'E',
+//         templateUrl:"views/blogs/blogContent.html"
+//     }
+// });
 
 
 angular.module('blog').controller('PanelController', function(){
@@ -74,9 +112,9 @@ angular.module('blog').controller('PanelController', function(){
   }
 });
 
-angular.module('blog').controller('newBlogController', 
-    ['$scope','AuthService', 
-    function($scope, AuthService){
+angular.module('blog').controller('BlogController', 
+    ['$scope','AuthService', '$http',
+    function($scope, AuthService, $http){
         
         //$scope.userStatus = true;
         $scope.getUserStatus = function(){
@@ -87,8 +125,66 @@ angular.module('blog').controller('newBlogController',
             console.log("Users Status: " + AuthService.getUserStatus());
 
         };
+    $http({
+      method: 'GET',
+      url: '/api/blogs'
+    }).then(function successCallback(response) {
+        // this callback will be called asynchronously
+        // when the response is available
+        $scope.blogs = response.data;
+        //console.log(response);
+      }, function errorCallback(response) {
+        // called asynchronously if an error occurs
+        // or server returns response with an error status.
+        console.log('Error: ' + response);
+      });
+    $scope.update = function(id, data){
+          // $scope.form = {};
+          data= data.toString();
+          console.log("UPDATE DATA:!!!!!" + data);
+          $http({
+            method: 'PUT',
+            url: '/api/blogs/' + id,
+            data: data}).
+            success(function(data) {
+                console.log(data);
+              // $scope.form = data.post;
+            });
+    };
+
+    // delete a todo after checking it
+    $scope.deleteBlog = function(id) {
+        $http.delete('/api/blogs/' + id)
+            .success(function(data) {
+                $scope.blogs = data;
+                console.log(data);
+            })
+            .error(function(data) {
+                console.log('Error: ' + data);
+            });
+    };
 
 }]);
+
+blogList.controller('mainController', ['$scope', '$http',
+    function($scope, $http) {
+                $scope.formData = {};
+        // Simple GET request example:
+        $http({
+          method: 'GET',
+          url: '/api/blogs'
+        }).then(function successCallback(response) {
+            // this callback will be called asynchronously
+            // when the response is available
+            $scope.blogs = response.data;
+            //console.log(response);
+          }, function errorCallback(response) {
+            // called asynchronously if an error occurs
+            // or server returns response with an error status.
+            console.log('Error: ' + response);
+          });
+}]);
+
 angular.module('blog').controller("blogTeasersController", 
     ['$scope', '$http',
     function($scope,$http){
@@ -96,7 +192,7 @@ angular.module('blog').controller("blogTeasersController",
         // Simple GET request example:
         $http({
           method: 'GET',
-          url: '/api/movies'
+          url: '/api/blogs'
         }).then(function successCallback(response) {
             // this callback will be called asynchronously
             // when the response is available
@@ -109,34 +205,22 @@ angular.module('blog').controller("blogTeasersController",
           });
 
 }]);
-angular.module('blog').controller("blogRestController", 
+angular.module('blog').controller("blogPostController", 
     ['$scope', '$http', 
     function($scope, $http) {
     $scope.editing = [];
     $scope.formData = {};
     $scope.foo = "FU";
+    $scope.header = {name: "views/index.html", url: "/views/index.html"};
 
 
     // Simple GET request example:
-    $http({
-      method: 'GET',
-      url: '/api/movies'
-    }).then(function successCallback(response) {
-        // this callback will be called asynchronously
-        // when the response is available
-        $scope.blogs = response.data;
-        //console.log(response);
-      }, function errorCallback(response) {
-        // called asynchronously if an error occurs
-        // or server returns response with an error status.
-        console.log('Error: ' + response);
-      });
 
         // when submitting the add form, send the text to the node API
     $scope.createBlog = function() {
         $http({
           method: 'POST',
-          url: '/api/movies',
+          url: '/api/blogs',
           data: $scope.formData
         }).then(function successCallback(response) {
             // this callback will be called asynchronously
@@ -152,46 +236,15 @@ angular.module('blog').controller("blogRestController",
             //console.log(response);
           });
     };
-    $scope.update = function(id, data){
-          // $scope.form = {};
-          data= data.toString();
-          console.log("UPDATE DATA:!!!!!" + data);
-          $http({
-            method: 'PUT',
-            url: '/api/movies/' + id,
-            data: data}).
-            success(function(data) {
-                console.log(data);
-              // $scope.form = data.post;
-            });
 
-          // $scope.editPost = function (id) {
-          //   $http.put('/api/movies/' + id, $scope.form).
-          //     success(function(data) {
-          //       $location.url(id);
-          //     });
-          // };
-    };
-
-    // delete a todo after checking it
-    $scope.deleteBlog = function(id) {
-        $http.delete('/api/movies/' + id)
-            .success(function(data) {
-                $scope.blogs = data;
-                console.log(data);
-            })
-            .error(function(data) {
-                console.log('Error: ' + data);
-            });
-    };
 
 }]);
 
-blogList.run(function ($rootScope, $location, $route, AuthService) {
-  $rootScope.$on('$routeChangeStart', function (event, next, current) {
-    if (next.access.restricted && AuthService.isLoggedIn() === false) {
-      $location.path('/login');
-      $route.reload();
-    }
-  });
-});
+// blogList.run(function ($rootScope, $location, $route, AuthService) {
+//   $rootScope.$on('$routeChangeStart', function (event, next, current) {
+//     if (next.access.restricted && AuthService.isLoggedIn() === false) {
+//       $location.path('/login');
+//       $route.reload();
+//     }
+//   });
+// });

@@ -82,9 +82,9 @@ app.get('/', function(request, response){
 	console.log(response);	
   response.sendFile(__dirname + '/views/index.html');
 });
-app.get('/newBlogPost', function(request, response){
-	response.sendFile(__dirname + '/views/newBlogPost.html')
-});
+// app.get('/newBlogPost', function(request, response){
+// 	response.sendFile(__dirname + '/views/newBlogPost.html')
+// });
 // app.get('/about', function(request, response){
 // 	console.log(response);	
 //   response.sendFile(__dirname + '/views/about/aboutMe.html');

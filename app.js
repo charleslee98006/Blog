@@ -9,7 +9,7 @@ var bodyParser = require('body-parser'); // pull information from HTML POST (exp
 var methodOverride = require('method-override'); // simulate DELETE and PUT (express4)  
 var Data = [];
 // Connect to the db
-mongoose.connect("mongodb://localhost:27017/test");
+mongoose.connect(("mongodb://localhost:27017/test"||"mongodb://heroku_vrzzvp36:eo8decui5g6tk3g071auck6b2h@ds045644.mongolab.com:45644/heroku_vrzzvp36"));
 
 var app = express();
 var routes = require('./modules/route')(app);

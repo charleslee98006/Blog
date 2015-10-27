@@ -3,9 +3,9 @@
           <!-- LOOP OVER THE TODOS IN $scope.todos -->
           <div ng-repeat="blog in blogs">
                 <label>    
-                  <h2>{{ blog.title}}</h2>
-                  <p>{{ blog.text}}...</p>
-                  <p>Date:{{blog.date}} By:{{blog.author}}</p>
+                  <h2>{{ blog.title| limitTo: 20 }}{{blog.title.length > 20 ? '...' : ''}}</h2>
+                  <p>{{ blog.text| limitTo: 20 }}{{blog.text.length > 20 ? '...' : ''}}</p>
+                  <p>Date: {{blog.date | date:'medium'}} By:{{blog.author}}</p>
                   
                 </label>
   <!--                   <button ng-show="!editing[$index]" ng-click="edit(blog._id)">edit</button>

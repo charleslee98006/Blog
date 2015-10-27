@@ -1,6 +1,9 @@
 var mongoose = require('mongoose');
 var movieSchema = new mongoose.Schema({
-	text:String
+	text:String,
+	title: String,
+	author: String,
+	date: String
 //   title: { type: String }
 // , rating: String
 // , releaseYear: Number
@@ -29,15 +32,21 @@ module.exports = function(app) {
 
     	req.on("data", function(data) {
     		body += data.toString();
+    		console.log(body);
     	});
     	req.on("end", function() {
 
     		body = JSON.parse(body);
-    		// console.log("BODY " + body.text);
+    		console.log("Body "+body);
+    		console.log("GOing in"+ body.title.text);
+    		console.log("BODY.Text " + body.body.text);
 
-	        // create a todo, information comes from AJAX request from Angular
+	        // create a blog, information comes from AJAX request from Angular
 	        Movie.create({
-	            text : body.text,
+	            text : body.body.text,
+	            title : body.title.text,
+	            author : body.author,
+	            date : body.date,
 	            done : false
 	        }, function(err, blog) {
 	            if (err)

@@ -3,7 +3,7 @@
 	<a href="#/blogs/newBlogPost" id="btnXX2" ng-click="newBlog()" ng-show="getUserStatus()">New Blog</a>
 
 	<div class="checkbox" ng-repeat="blog in blogs">
-        <input type="checkbox" ng-click="deleteBlog(blog._id)">
+        <input type="checkbox" ng-show="getUserStatus()" ng-click="deleteBlog(blog._id)">
             <label>    
                 <a href="#" editable-textarea="blog.text" e-rows="7" e-cols="40" onaftersave="update(blog._id, $data)">{{ blog.text }}</a>
             </label>

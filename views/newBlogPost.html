@@ -13,10 +13,10 @@
         
         <input type="text" class="form-control input-lg text-center" ng-model="formData.text" name="title" size="100";>
         <h2>Post: </h2>
-        <textarea rows="20" cols="100" ng-model="formBody"></textarea>
+        <textarea rows="20" cols="100" ng-model="formBody.text"></textarea>
         </div>
         <!-- createToDo() WILL CREATE NEW TODOS -->
-        <button type="submit" class="btn btn-primary btn-lg" ng-click="createBlog()">Add</button>
+        <button type="submit" class="btn btn-primary btn-lg" ng-click="createBlog(getDatetime())">Add</button>
       </form>
     </div>
   </div>

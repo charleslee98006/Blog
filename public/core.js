@@ -210,18 +210,26 @@ angular.module('blog').controller("blogPostController",
     function($scope, $http) {
     $scope.editing = [];
     $scope.formData = {};
-    $scope.foo = "FU";
-    $scope.header = {name: "views/index.html", url: "/views/index.html"};
-
+    // $scope.foo = "FU";
+    // $scope.header = {name: "views/index.html", url: "/views/index.html"};
+    $scope.getDatetime = function() {
+        // console.log(new Date());
+      return (new Date());
+    };
 
     // Simple GET request example:
 
         // when submitting the add form, send the text to the node API
-    $scope.createBlog = function() {
+    $scope.createBlog = function(timestamp) {
         $http({
           method: 'POST',
           url: '/api/blogs',
-          data: $scope.formData
+          data: {
+            "title":$scope.formData, 
+            "body": $scope.formBody,
+            "author": "Charles",
+            "date" : timestamp
+            }
         }).then(function successCallback(response) {
             // this callback will be called asynchronously
             // when the response is available

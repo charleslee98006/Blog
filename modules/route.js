@@ -10,7 +10,7 @@ var movieSchema = new mongoose.Schema({
 // , hasCreditCookie: Boolean
  // , _id:String
 });
-var Movie = mongoose.model('movies', movieSchema);
+var Movie = mongoose.model('blogs', movieSchema);
 
 // movieSchema);
 

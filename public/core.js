@@ -26,6 +26,9 @@ blogList.config(function($routeProvider) {
             .when('/blogs/newBlogPost',{
                 templateUrl : 'views/newBlogPost.html'
             })
+            .when('/registerUser',{
+                templateUrl : 'views/registerUser.html'
+            })
             .otherwise({
                 redirectTo: '/'
             });
@@ -111,6 +114,15 @@ angular.module('blog').controller('PanelController', function(){
     return this.tab === checkTab;
   }
 });
+
+angular.module('blog').controller('RegUserController', 
+    ['$scope','AuthService', '$http',
+    function($scope, AuthService, $http){
+        $scope.regUser = function(){
+            AuthService.register($scope.userName, $scope.userPw);
+        }
+}]);
+
 
 angular.module('blog').controller('BlogController', 
     ['$scope','AuthService', '$http',

@@ -82,7 +82,7 @@ angular.module('blog').factory('AuthService',
   var deferred = $q.defer();
 
   // send a post request to the server
-  $http.post('/user/register', {username: username, password: password})
+  $http.post('/user/register', {username: username.text, password: password.text})
     // handle success
     .success(function (data, status) {
       if(status === 200 && data.status){

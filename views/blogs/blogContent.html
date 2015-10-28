@@ -4,8 +4,9 @@
 
 	<div class="checkbox" ng-repeat="blog in blogs">
         <input type="checkbox" ng-show="getUserStatus()" ng-click="deleteBlog(blog._id)">
-            <label>    
-                <a href="#" editable-textarea="blog.text" e-rows="7" e-cols="40" onaftersave="update(blog._id, $data)">{{ blog.text }}</a>
+            <label>
+                <div editable-textarea="blog.text" e-rows="7" e-cols="40" onaftersave="update(blog._id, $data)">{{ blog.text }}</div>    
+                <a href="#" >x</a>
             </label>
   <!--                   <button ng-show="!editing[$index]" ng-click="edit(blog._id)">edit</button>
                     <input ng-show="editing[$index]" type="text" ng-model="blog.name">

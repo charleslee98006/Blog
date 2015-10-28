@@ -14,7 +14,18 @@ a {
 }
 #container{
 	position: absolute;
-	left: 250px;
+	left: 240px;
+    padding: 10px;
+}
+#bio h1{
+    width: 100%;
+    text-align: center;  
+}
+#bio img{
+    border-radius: 50%;
+        display: block;
+    margin-left: auto;
+    margin-right: auto ;
 }
 #wrapper.toggled {
     padding-left: 250px;

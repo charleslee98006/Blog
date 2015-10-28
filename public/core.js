@@ -150,8 +150,10 @@ angular.module('blog').controller('BlogController',
         // or server returns response with an error status.
         console.log('Error: ' + response);
       });
+
     $scope.update = function(id, data){
           // $scope.form = {};
+        if(AuthService.getUserStatus()){
           data= data.toString();
           console.log("UPDATE DATA:!!!!!" + data);
           $http({
@@ -162,6 +164,10 @@ angular.module('blog').controller('BlogController',
                 console.log(data);
               // $scope.form = data.post;
             });
+        }
+        else{
+            console.log("You are not logged in to make the change.");
+        }
     };
 
     // delete a todo after checking it

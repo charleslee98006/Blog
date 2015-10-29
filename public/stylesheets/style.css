@@ -1,10 +1,62 @@
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  width: 100%;
 }
 
 a {
   color: #00B7FF;
 }
+#blogIcons{
+    width: 100%;
+}
+.day{
+    font-size: 30px;
+    margin:0px;
+    width: 50px;
+    background: green;
+    color: white;
+}
+.month{
+    font-size: 20px;
+    margin: 0px;
+    width: 50px;
+    background: green;
+    color: white;
+}
+.time{
+    margin: 0px;
+    background: black;
+    color: white;
+    width: 60px;
+}
+.title{
+    margin: 0px;
+}
+.teasers{
+    margin: 0px;
+}
+.contentBlog{
+    display: flex;
+    justify-content: left;
+    /*display: inline-block;*/
+}
+.blogTile{
+    margin: 5px;
+    background: #c0c0c0;
+    padding: 5px;
+
+}
+.year{
+    text-align: center;
+}
+.blogDate{
+    margin-right: 5px;
+    text-align: center;
+}
+/*.blogsInfo{
+    display: block;
+    float: left;
+}*/
 #wrapper {
     padding-left: 0;
     -webkit-transition: all 0.5s ease;
@@ -16,14 +68,18 @@ a {
 	position: absolute;
 	left: 240px;
     padding: 10px;
+    width: 100%;
+    max-width: 800px;
+}
+#bio{
+    text-align: center;  
 }
 #bio h1{
     width: 100%;
-    text-align: center;  
 }
 #bio img{
     border-radius: 50%;
-        display: block;
+    display: block;
     margin-left: auto;
     margin-right: auto ;
 }

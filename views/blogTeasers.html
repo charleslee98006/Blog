@@ -1,13 +1,24 @@
-<div ng-controller = "blogTeasersController">
+<div id="blogIcons" ng-controller = "blogTeasersController">
       <p>{{blogs.length}} Blogs</p>
           <!-- LOOP OVER THE TODOS IN $scope.todos -->
-          <div ng-repeat="blog in blogs">
-                <label>    
-                  <h2>{{ blog.title| limitTo: 20 }}{{blog.title.length > 20 ? '...' : ''}}</h2>
-                  <p>{{ blog.text| limitTo: 20 }}{{blog.text.length > 20 ? '...' : ''}}</p>
-                  <p>Date: {{blog.date | date:'medium'}} By:{{blog.author}}</p>
+          <div class="blogs" ng-repeat="blog in blogs"> 
+                    <p class="year">{{blog.date | date:'yyyy'}}</p>
+                    <div class="blogTile">
+                      <div class="contentBlog">
+                        <div class="blogDate">
+                          <p class="day">{{blog.date | date:'dd'}}</p>
+                          <p class="month">{{blog.date | date:'MMM'}}</p>
+                        </div>
+                        <div class="blogTease">
+                          <p class="time">{{blog.date | date:'h:mma'}}</p>
+                          <h2 class="title">{{ blog.title| limitTo: 20 }}{{blog.title.length > 20 ? '...' : ''}}</h2>
+                          <p class="teasers">{{ blog.text| limitTo: 20 }}{{blog.text.length > 20 ? '...' : ''}}</p>
+                        </div>
+                      </div>
+                    </div>
                   
-                </label>
+<!--                   <p>By:{{blog.author}}</p> -->
+                  
   <!--                   <button ng-show="!editing[$index]" ng-click="edit(blog._id)">edit</button>
                     <input ng-show="editing[$index]" type="text" ng-model="blog.name">
                     <button ng-show="editing[$index]" ng-click="update($index)">Update</button>

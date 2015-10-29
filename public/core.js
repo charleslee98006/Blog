@@ -221,6 +221,9 @@ angular.module('blog').controller("blogTeasersController",
             // or server returns response with an error status.
             console.log('Error: ' + response);
           });
+    $scope.yearShownAlready = function(){
+
+    }
 
 }]);
 angular.module('blog').controller("blogPostController", 

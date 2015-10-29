@@ -1,29 +1,37 @@
 <div id="blogIcons" ng-controller = "blogTeasersController">
       <p>{{blogs.length}} Blogs</p>
           <!-- LOOP OVER THE TODOS IN $scope.todos -->
-          <div class="blogs" ng-repeat="blog in blogs"> 
-                    <p class="year">{{blog.date | date:'yyyy'}}</p>
-                    <div class="blogTile">
-                      <div class="contentBlog">
-                        <div class="blogDate">
-                          <p class="day">{{blog.date | date:'dd'}}</p>
-                          <p class="month">{{blog.date | date:'MMM'}}</p>
-                        </div>
-                        <div class="blogTease">
-                          <p class="time">{{blog.date | date:'h:mma'}}</p>
-                          <h2 class="title">{{ blog.title| limitTo: 20 }}{{blog.title.length > 20 ? '...' : ''}}</h2>
-                          <p class="teasers">{{ blog.text| limitTo: 20 }}{{blog.text.length > 20 ? '...' : ''}}</p>
+          <div class="yearTile">
+            <p class="year">{{blogs[0].date | date:'yyyy'}}</p>
+            <div class="YearGroup">
+              <div class="blogs" ng-repeat="blog in blogs | limitTo:3"> 
+  <!--                     <div ng-repeat="blog in blogs | limitTo:1">
+                        
+                      </div> -->
+                      <div class="blogTile">
+                        <div class="contentBlog">
+                          <div class="blogDate">
+                            <p class="day">{{blog.date | date:'dd'}}</p>
+                            <p class="month">{{blog.date | date:'MMM'}}</p>
+                          </div>
+                          <div class="blogTease">
+
+                            <p class="time">{{blog.date | date:'h:mma'}}</p>
+                            <h2 class="title">{{ blog.title| limitTo: 110 }}{{blog.title.length > 110 ? '...' : ''}}</h2>
+                            <p class="teasers">{{ blog.text| limitTo: 110 }}{{blog.text.length > 110 ? '...' : ''}}</p>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  
-<!--                   <p>By:{{blog.author}}</p> -->
-                  
-  <!--                   <button ng-show="!editing[$index]" ng-click="edit(blog._id)">edit</button>
-                    <input ng-show="editing[$index]" type="text" ng-model="blog.name">
-                    <button ng-show="editing[$index]" ng-click="update($index)">Update</button>
-                    <button ng-show="editing[$index]" ng-click="cancel($index)">Cancel</button> -->
-          </div>
 
+                    
+  <!--                   <p>By:{{blog.author}}</p> -->
+                    
+    <!--                   <button ng-show="!editing[$index]" ng-click="edit(blog._id)">edit</button>
+                      <input ng-show="editing[$index]" type="text" ng-model="blog.name">
+                      <button ng-show="editing[$index]" ng-click="update($index)">Update</button>
+                      <button ng-show="editing[$index]" ng-click="cancel($index)">Cancel</button> -->
+            </div>
+          </div>
+      </div>
 
     </div>

@@ -44,10 +44,21 @@ a {
     margin: 5px;
     background: #c0c0c0;
     padding: 5px;
-
 }
 .year{
-    text-align: center;
+/*    display: flex;
+    justify-content: left;*/
+    text-align: left;
+    margin-top: auto;
+    margin-bottom: auto;
+     -webkit-writing-mode: vertical-rl;
+     -webkit-text-orientation: upright;
+}
+.yearTile{
+    display: flex;    
+    margin: 0px;
+    background: green;
+    width: 100%;
 }
 .blogDate{
     margin-right: 5px;

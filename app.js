@@ -14,6 +14,7 @@ mongoose.connect(("mongodb://heroku_vrzzvp36:eo8decui5g6tk3g071auck6b2h@ds045644
 
 var app = express();
 var routes = require('./modules/route')(app);
+require('./modules/routeProj')(app);
 var User = require('./modules/account');
 // require('./modules/controllers/showPost')(app);
 

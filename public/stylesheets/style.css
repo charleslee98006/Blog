@@ -6,6 +6,64 @@ body {
 a {
   color: #00B7FF;
 }
+#projecTeaseCoursel{
+    margin-bottom: 0px;
+}
+.animate-enter {
+    -webkit-transition: 1s linear all; /* Chrome */
+    transition: 1s linear all;
+    opacity: 0;
+}
+ 
+.animate-enter.animate-enter-active {
+    opacity: 1;
+}
+.projects{
+      display: flex;
+  justify-content: left;
+}
+.projectIcons{
+    margin-top: 50px;
+    height: 250px;
+}
+.projectIcons > a > img{
+   opacity: 1;
+   transition: opacity .25s ease-in-out;
+   -moz-transition: opacity .25s ease-in-out;
+   -webkit-transition: opacity .25s ease-in-out;
+}
+.
+.projectIcons > a > img:hover {
+  opacity: 0.5;
+}
+.projectIcons:hover{
+    transition: .25s linear all;
+    -webkit-transition: .25s linear all;
+    transform:translate(0,-25px);
+}
+.projectIcons.ng-enter{
+    opacity:0;
+  color: red;
+}
+
+.projectIcons.ng-enter.ng-enter-active  {
+    
+    opacity: 1;
+    color: red;
+}
+.projectIcons.ng-leave{
+  opacity: 1;
+  color: blue;
+}
+
+.projectIcons.ng-leave.ng-leave-active {
+    color: blue;
+  opacity: 0;
+}
+.projectTitle{
+    padding: 0px;
+    margin: 0px;
+}
 #blogIcons{
     width: 100%;
 }
@@ -48,15 +106,16 @@ a {
 .year{
 /*    display: flex;
     justify-content: left;*/
+    font-size: 20px;
     text-align: left;
     margin-top: auto;
     margin-bottom: auto;
-     -webkit-writing-mode: vertical-rl;
-     -webkit-text-orientation: upright;
+    -webkit-writing-mode: vertical-rl;
+    -webkit-text-orientation: upright;
 }
 .yearTile{
     display: flex;    
-    margin: 0px;
+    margin-bottom: 10px;
     background: green;
     width: 100%;
 }

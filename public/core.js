@@ -1,7 +1,7 @@
 'use strict';
 
 
-var blogList = angular.module('blog', ["xeditable","ngRoute"]);
+var blogList = angular.module('blog', ["xeditable","ngRoute", 'ngAnimate']);
 
 blogList.config(function($routeProvider) { 
         $routeProvider
@@ -226,6 +226,38 @@ angular.module('blog').controller("blogTeasersController",
     }
 
 }]);
+
+blogList.controller("projectTeasersController", 
+    ['$scope', '$http',
+    function($scope,$http){
+        $scope.formData = {};
+        // Simple GET request example:
+        $http({
+          method: 'GET',
+          url: '/api/projects'
+        }).then(function successCallback(response) {
+            // this callback will be called asynchronously
+            // when the response is available
+            $scope.projects = response.data;
+            //console.log(response);
+          }, function errorCallback(response) {
+            // called asynchronously if an error occurs
+            // or server returns response with an error status.
+            console.log('Error: ' + response);
+          });
+    $scope.yearShownAlready = function(){
+
+    }
+    $scope.hoverIn = function(){
+        this.hoverEdit = true;
+    };
+
+    $scope.hoverOut = function(){
+        this.hoverEdit = false;
+    };
+
+}]);
+
 angular.module('blog').controller("blogPostController", 
     ['$scope', '$http', 
     function($scope, $http) {

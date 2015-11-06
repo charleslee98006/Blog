@@ -64,9 +64,11 @@ a {
     padding: 0px;
     margin: 0px;
 }
-.projectTitle >p{
+.projectTitle > p{
     background: black;
     color: white;
+    margin: 0px;
+    padding: 5px;
 }
 #blogIcons{
     width: 100%;

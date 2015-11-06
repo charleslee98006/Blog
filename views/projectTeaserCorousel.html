@@ -1,11 +1,12 @@
 <div id="projecTeaseCoursel" ng-controller = "projectTeasersController">
 	<div class= "projects">
 		<div class="projectIcons" ng-repeat="project in projects | limitTo:3 | orderBy: '-date'" ng-init="count=0">
-			<a href="{{project.link}}"><img src="{{project.img}}" width: "200px" height="200px" ng-mouseover="hoverIn()" ng-mouseleave="hoverOut()">
-				<div class="projectTitle" ng-show="hoverEdit">
-					<p>{{project.title}}</p>
-				</div>
+			<a href="{{project.link}}">
+				<img src="{{project.img}}" width: "200px" height="200px" ng-mouseover="hoverIn()" ng-mouseleave="hoverOut()">
 			</a>
+			<div class="projectTitle" ng-show="hoverEdit">
+				<p>{{project.title}}</p>
+			</div>
 		</div>
 
 	</div>

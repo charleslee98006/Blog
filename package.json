@@ -2,11 +2,12 @@
   "name": "blogExpress",
   "version": "0.0.0",
   "private": true,
-  "scripts":{
-  	"start": "node app"
+  "scripts": {
+    "start": "node app"
   },
   "dependencies": {
+    "angular-bootstrap-lightbox": "^0.10.0",
     "express": "~4.13.1",
-    "hbs":"*"
+    "hbs": "*"
   }
 }

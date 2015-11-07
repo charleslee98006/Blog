@@ -29,6 +29,11 @@ blogList.config(function($routeProvider) {
             .when('/registerUser',{
                 templateUrl : 'views/registerUser.html'
             })
+            // .when('/projectInfo/:worksId', {
+            //     templateUrl: function(urlattr){
+            //         return '/projectInfo/' + urlattr.worksId+'.html';
+            //     }
+            // })
             .otherwise({
                 redirectTo: '/'
             });
@@ -229,7 +234,10 @@ angular.module('blog').controller("blogTeasersController",
 
 blogList.controller("projectTeasersController", 
     ['$scope', '$http',
-    function($scope,$http){
+    function($scope,$http, LightBox){
+        // $scope.images=[{
+
+        // }];
         $scope.formData = {};
         // Simple GET request example:
         $http({
@@ -245,6 +253,9 @@ blogList.controller("projectTeasersController",
             // or server returns response with an error status.
             console.log('Error: ' + response);
           });
+    $scope.openLightboxModal = function (images) {
+        Lightbox.openModal(images, 0);
+    };
     $scope.yearShownAlready = function(){
 
     }
@@ -254,6 +265,22 @@ blogList.controller("projectTeasersController",
 
     $scope.hoverOut = function(){
         this.hoverEdit = false;
+    };
+    // $scope.anchorClicked = function(id){
+    //     $routeParams.anchorTag(id);
+    // }
+    // $scope.anchorTag = function(id){
+    //     return $location.hash(id);
+    // };
+    $scope.projectImgClicked = function(param){
+        $scope.projectClicked = true;
+        $scope.title = $scope.projects[param].title;
+        $scope.img =$scope.projects[param].img;
+        $scope.text = $scope.projects[param].text;
+        $scope.link = $scope.projects[param].link;
+        console.log($scope.projects);
+        console.log($scope.projects[param].title);
+        console.log(param);
     };
 
 }]);

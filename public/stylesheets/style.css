@@ -1,10 +1,14 @@
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   width: 100%;
+  height: 100%;
 }
 
-a {
+/*a {
   color: #00B7FF;
+}*/
+#mainMenu{
+    height: 100%;
 }
 #projecTeaseCoursel{
     margin-bottom: 0px;
@@ -14,17 +18,54 @@ a {
     transition: 1s linear all;
     opacity: 0;
 }
- 
+.projectTeaserInfo{
+    overflow: hidden;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 1000;
+    background: black;
+    width: 100%;
+    height: 100%;
+}
+.customLightBox{
+    margin: 20px;
+}
+.customLightBox img{
+    width: 100%;
+    height: 100%;
+}
+.xButton{
+    position: absolute;
+    top:0px;
+    right: 0px;
+    background: white;
+    width: 20px;
+    height: 20px;
+    padding: 5px;
+    margin: 10px;
+    vertical-align: middle;
+    text-align: center;
+    opacity: 1;
+}
+.projectInfo{
+    background: white;
+    padding: 10px;
+}
 .animate-enter.animate-enter-active {
     opacity: 1;
 }
 .projects{
-      display: flex;
-  justify-content: left;
+    display: flex;
+    justify-content: left;
 }
 .projectIcons{
     margin-top: 50px;
     height: 250px;
+}
+.projectIcons a{
+    height: 100%;
+    z-index: 998;
 }
 .projectIcons > a > img{
    opacity: 1;
@@ -32,7 +73,6 @@ a {
    -moz-transition: opacity .25s ease-in-out;
    -webkit-transition: opacity .25s ease-in-out;
 }
-.
 .projectIcons > a > img:hover {
   opacity: 0.5;
 }
@@ -43,7 +83,7 @@ a {
 }
 .projectIcons.ng-enter{
     opacity:0;
-  color: red;
+    color: red;
 }
 
 .projectIcons.ng-enter.ng-enter-active  {
@@ -61,14 +101,18 @@ a {
   opacity: 0;
 }
 .projectTitle{
+    position: absolute;
     padding: 0px;
     margin: 0px;
+    z-index: 998;
+    width: 100%;
 }
 .projectTitle > p{
     background: black;
     color: white;
     margin: 0px;
     padding: 5px;
+    text-align: center;
 }
 #blogIcons{
     width: 100%;
@@ -141,11 +185,12 @@ a {
     transition: all 0.5s ease;
 }
 #container{
-	position: absolute;
-	left: 240px;
+    position: fixed;
+	margin-left: 250px;
     padding: 10px;
     width: 100%;
     max-width: 800px;
+    height: 100%;
 }
 #bio{
     text-align: center;  
@@ -167,12 +212,13 @@ a {
     height: 200px;
 }
 #sidebar-wrapper {
+       position: fixed;
+            width: 200px;
     z-index: 1000;
-    position: fixed;
+ 
 /*    left: 10px;*/
-    width: 100%;
     height: 100%;
-    overflow-y: auto;
+    overflow-y: hidden; 
     background: #000;
     -webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
@@ -200,7 +246,6 @@ a {
 .sidebar-nav {
     position: absolute;
     top: 0;
-    width: 250px;
     margin: 0;
     padding: 0;
     list-style: none;
@@ -242,8 +287,10 @@ a {
     color: #fff;
     background: none;
 }
+#sidebar-wrapper {
 
-@media(min-width:768px) {
+}
+/*@media{
     #wrapper {
         padding-left: 250px;
     }
@@ -252,9 +299,7 @@ a {
         padding-left: 0;
     }
 
-    #sidebar-wrapper {
-        width: 200px;
-    }
+
 
     #wrapper.toggled #sidebar-wrapper {
         width: 0;
@@ -269,4 +314,4 @@ a {
         position: relative;
         margin-right: 0;
     }
-}
+}*/

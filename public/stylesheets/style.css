@@ -27,14 +27,17 @@ body {
     background: black;
     width: 100%;
     height: 100%;
+    margin-bottom: 20px;
+    max-height: 700px;
 }
 .customLightBox{
     margin: 20px;
 }
 .customLightBox img{
-    width: 100%;
-    height: 100%;
-    max-height: 500px;
+    display: block;
+    margin: 0 auto;
+    max-width: 80%;
+    height: auto; 
 }
 .xButton{
     position: absolute;
@@ -50,8 +53,11 @@ body {
     opacity: 1;
 }
 .projectInfo{
+    margin-top: 20px;
     background: white;
     padding: 10px;
+    max-height: 200px;
+
 }
 .animate-enter.animate-enter-active {
     opacity: 1;

@@ -327,7 +327,51 @@ angular.module('blog').controller("blogPostController",
 
 
 }]);
+blogList.controller("projectPageController", 
+    ['$scope', '$http',
+    function($scope,$http){
+        // $scope.images=[{
 
+        // }];
+        $scope.formData = {};
+        // Simple GET request example:
+        $http({
+          method: 'GET',
+          url: '/api/projects'
+        }).then(function successCallback(response) {
+            // this callback will be called asynchronously
+            // when the response is available
+            $scope.projects = response.data;
+            //console.log(response);
+          }, function errorCallback(response) {
+            // called asynchronously if an error occurs
+            // or server returns response with an error status.
+            console.log('Error: ' + response);
+          });
+            $scope.hoverIn = function(){
+        this.hoverEdit = true;
+    };
+
+    $scope.hoverOut = function(){
+        this.hoverEdit = false;
+    };
+    // $scope.anchorClicked = function(id){
+    //     $routeParams.anchorTag(id);
+    // }
+    // $scope.anchorTag = function(id){
+    //     return $location.hash(id);
+    // };
+    $scope.projectImgClicked = function(param){
+        $scope.projectClicked = true;
+        $scope.title = $scope.projects[param].title;
+        $scope.img =$scope.projects[param].img;
+        $scope.text = $scope.projects[param].text;
+        $scope.link = $scope.projects[param].link;
+        console.log($scope.projects);
+        console.log($scope.projects[param].title);
+        console.log(param);
+    };
+}]);     
 // blogList.run(function ($rootScope, $location, $route, AuthService) {
 //   $rootScope.$on('$routeChangeStart', function (event, next, current) {
 //     if (next.access.restricted && AuthService.isLoggedIn() === false) {

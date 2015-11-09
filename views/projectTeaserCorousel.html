@@ -3,7 +3,7 @@
 		<div class="projectIcons" ng-repeat="project in projects | limitTo:3 | orderBy: '-date'" ng-init="count=0">
 			<!-- <a ng-click="Lightbox.openModal([{'url':'{{project.img}},'caption': '{{project.text}}', 'thumbUrl': '{{project.img}}' ])"> -->
 			<a ng-click=projectImgClicked($index)>
-				<img src="{{project.img}}" width: "200px" height="200px" ng-mouseover="hoverIn()" ng-mouseleave="hoverOut()">
+				<img src="{{project.img}}" width="300px" height="200px" ng-mouseover="hoverIn()" ng-mouseleave="hoverOut()">
 			</a>
 			<div class="projectTitle" ng-show="hoverEdit">
 				<p>{{project.title}}</p>
@@ -13,7 +13,7 @@
 	</div>
 	<div class="projectTeaserInfo" ng-show="projectClicked">
 		<div class="customLightBox">
-			<img src="{{img}}" width: "200px" height="200px">
+			<img src="{{img}}">
 			<div class="projectInfo">
 				<p>{{title}}</p>
 				<p>{{text}}</p>

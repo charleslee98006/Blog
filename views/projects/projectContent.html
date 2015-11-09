@@ -1,3 +1,27 @@
-<div id='project-Content' ng-show='tab==2'>
-	<p>Projects CONTENT</p>
+<div id='project-Content' ng-controller= "projectPageController">
+	<div class= "projects">
+		<div class="projectIcons" ng-repeat="project in projects | orderBy: '-date'" ng-init="count=0">
+			<!-- <a ng-click="Lightbox.openModal([{'url':'{{project.img}},'caption': '{{project.text}}', 'thumbUrl': '{{project.img}}' ])"> -->
+			<a ng-click=projectImgClicked($index)>
+				<img src="{{project.img}}" width="300px" height="200px" ng-mouseover="hoverIn()" ng-mouseleave="hoverOut()">
+			</a>
+			<div class="projectTitle" ng-show="hoverEdit">
+				<p>{{project.title}}</p>
+			</div>
+		</div>
+
+	</div>
+	<div class="projectTeaserInfo" ng-show="projectClicked">
+		<div class="customLightBox">
+			<img src="{{img}}">
+			<div class="projectInfo">
+				<p>{{title}}</p>
+				<p>{{text}}</p>
+				<a href ="{{project.link}}">{{link}}</a>
+			</div>
+			<div class="xButton" ng-click="projectClicked=false">
+				X			
+			</div>
+		</div>
+	</div>
 </div>

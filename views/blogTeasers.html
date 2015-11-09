@@ -15,8 +15,8 @@
                           </div>
                           <div class="blogTease">
                             <p class="time">{{blog.date | date:'h:mma'}}</p>
-                            <h2 class="title">{{ blog.title | limitTo: 110 }}{{blog.title.length > 110 ? '...' : ''}}</h2>
-                            <p class="teasers">{{ blog.text | limitTo: 110 }}{{blog.text.length > 110 ? '...' : ''}}</p>
+                            <h2 class="title">{{ blog.title | limitTo: 90 }}{{blog.title.length > 90 ? '...' : ''}}</h2>
+                            <p class="teasers">{{ blog.text | limitTo: 90 }}{{blog.text.length > 90 ? '...' : ''}}</p>
                           </div>
                         </div>
                       </div>

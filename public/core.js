@@ -120,7 +120,7 @@ angular.module('blog').controller('PanelController', function(){
   }
 });
 
-angular.module('blog').controller('RegUserController', 
+blogList.controller('RegUserController', 
     ['$scope','AuthService', '$http',
     function($scope, AuthService, $http){
         $scope.regUser = function(){
@@ -129,7 +129,7 @@ angular.module('blog').controller('RegUserController',
 }]);
 
 
-angular.module('blog').controller('BlogController', 
+blogList.controller('BlogController', 
     ['$scope','AuthService', '$http',
     function($scope, AuthService, $http){
         
@@ -208,7 +208,7 @@ blogList.controller('mainController', ['$scope', '$http',
           });
 }]);
 
-angular.module('blog').controller("blogTeasersController", 
+blogList.controller("blogTeasersController", 
     ['$scope', '$http',
     function($scope,$http){
         $scope.formData = {};
@@ -285,7 +285,7 @@ blogList.controller("projectTeasersController",
 
 }]);
 
-angular.module('blog').controller("blogPostController", 
+blogList.controller("blogPostController", 
     ['$scope', '$http', 
     function($scope, $http) {
     $scope.editing = [];

@@ -149,6 +149,10 @@ body {
     justify-content: left;
     /*display: inline-block;*/
 }
+.YearGroup{
+    width: 100%;
+    max-width: 875px;
+}
 .blogTile{
     margin: 5px;
     background: #c0c0c0;
@@ -169,6 +173,7 @@ body {
     margin-bottom: 10px;
     background: green;
     width: 100%;
+    max-width: 900px;
 }
 .blogDate{
     margin-right: 5px;
@@ -190,7 +195,7 @@ body {
 	margin-left: 250px;
     padding: 10px;
     width: 100%;
-    max-width: 800px;
+    max-width: 900px;
     height: 100%;
 }
 #bio{

@@ -1,6 +1,8 @@
 <div id="blogContent" ng-show="tab==3" ng-controller = "BlogController">
-    <h1>Blogs</h1>
-	<a href="#/blogs/newBlogPost" id="addBlog" ng-click="newBlog()" ng-show="getUserStatus()">New Blog</a>
+    <div id="blogHead">
+        <h1>Blogs</h1>
+        <a href="#/blogs/newBlogPost" id="addBlog" ng-click="newBlog()" ng-show="getUserStatus()">+</a>
+    </div>
     <div class="yearTile">
         <p class="year">{{blogs[0].date | date:'yyyy'}}</p>
         <div class="YearGroup">

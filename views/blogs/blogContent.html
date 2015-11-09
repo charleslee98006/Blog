@@ -1,9 +1,10 @@
 <div id="blogContent" ng-show="tab==3" ng-controller = "BlogController">
-	<a href="#/blogs/newBlogPost" id="btnXX2" ng-click="newBlog()" ng-show="getUserStatus()">New Blog</a>
+    <h1>Blogs</h1>
+	<a href="#/blogs/newBlogPost" id="addBlog" ng-click="newBlog()" ng-show="getUserStatus()">New Blog</a>
     <div class="yearTile">
         <p class="year">{{blogs[0].date | date:'yyyy'}}</p>
         <div class="YearGroup">
-            <div class="checkbox" ng-repeat="blog in blogs">
+            <div class="checkbox" ng-repeat="blog in blogs| orderBy: '-date'">
                 <div class="blogTile">
                     <div class="contentBlog">
                         <div class="blogDate">
@@ -11,14 +12,15 @@
                             <p class="month">{{blog.date | date:'MMM'}}</p>
                         </div>
                         <div class="blogTease" >
+                            <div class="deleteBlog" ng-show="getUserStatus()" ng-click="deleteBlog(blog._id)"> X
+                            </div>
                             <p class="time">{{blog.date | date:'h:mma'}}</p>
                             <h2 class="title" editable-text ="blog.title" e-rows="1" onaftersave="update(blog._id, $data)">{{ blog.title | limitTo: 90 }}{{blog.title.length > 90 ? '...' : ''}}</h2>
-                            <p class="teasers" editable-textarea="blog.text" e-rows="7" e-cols="40" onaftersave="update(blog._id, $data)">{{ blog.text | limitTo: 90 }}{{blog.text.length > 90 ? '...' : ''}}</p>
+                            <p class="teasers" editable-textarea="blog.text" e-rows="20" e-cols="100" onaftersave="update(blog._id, $data)">{{ blog.text | limitTo: 90 }}{{blog.text.length > 90 ? '...' : ''}}</p>
                         </div>
                     </div>
-                </div>
-                <input type="checkbox" ng-show="getUserStatus()" ng-click="deleteBlog(blog._id)">
-                <div editable-textarea="blog.text" e-rows="7" e-cols="40" onaftersave="update(blog._id, $data)">{{ blog.text | limitTo: 90 }}{{blog.text.length > 90 ? '...' : ''}}</div>    
+                </div>      
+<!--                 <div editable-textarea="blog.text" e-rows="7" e-cols="40" onaftersave="update(blog._id, $data)">{{ blog.text | limitTo: 90 }}{{blog.text.length > 90 ? '...' : ''}}</div>     -->
   <!--                   <button ng-show="!editing[$index]" ng-click="edit(blog._id)">edit</button>
                     <input ng-show="editing[$index]" type="text" ng-model="blog.name">
                     <button ng-show="editing[$index]" ng-click="update($index)">Update</button>

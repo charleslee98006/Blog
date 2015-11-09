@@ -61,7 +61,7 @@ body {
     justify-content: left;
 }
 .projectIcons{
-    margin-top: 50px;
+    margin-top: 25px;
     height: 250px;
 }
 .projectIcons a{
@@ -88,7 +88,6 @@ body {
 }
 
 .projectIcons.ng-enter.ng-enter-active  {
-    
     opacity: 1;
     color: red;
 }
@@ -117,6 +116,11 @@ body {
 }
 #blogIcons{
     width: 100%;
+}
+/*.blogTease > .teasers{
+}*/
+#blogContent{
+    height: 400px;
 }
 .day{
     font-size: 30px;
@@ -191,12 +195,28 @@ body {
     transition: all 0.5s ease;
 }
 #container{
-    position: fixed;
+    position: absolute;
 	margin-left: 250px;
     padding: 10px;
     width: 100%;
     max-width: 900px;
     height: 100%;
+}
+#addBlog{
+    background: blue;
+    position:absolute;
+    right: 0px;
+}
+.deleteBlog {
+    background: white;
+    color: red;
+    width: 10px;
+    padding: 5px;
+    position: absolute;
+    right: 20px;
+}
+.deleteBlog:hover{
+    opacity: 0.5;
 }
 #bio{
     text-align: center;  

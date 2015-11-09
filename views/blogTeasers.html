@@ -1,10 +1,11 @@
 <div id="blogIcons" ng-controller = "blogTeasersController">
+  <h1>Blogs</h1>
 <!--       <p>{{blogs.length}} Blogs</p> -->
           <!-- LOOP OVER THE TODOS IN $scope.todos -->
           <div class="yearTile">
             <p class="year">{{blogs[0].date | date:'yyyy'}}</p>
             <div class="YearGroup">
-              <div class="blogs" ng-repeat="blog in blogs | limitTo:3 | orderBy: '-date'"> 
+              <div class="blogs" ng-repeat="blog in blogs | orderBy: '-date' | limitTo:3 "> 
   <!--                     <div ng-repeat="blog in blogs | limitTo:1">
                       </div> -->
                       <div class="blogTile">
@@ -31,5 +32,4 @@
             </div>
           </div>
       </div>
-
-    </div>
+</div>

@@ -15,11 +15,19 @@
     <script src="core.js"></script>
     <script src="service.js"></script>
     <script src="controller.js"></script>
-    <script src="/node_modules/angular-bootstrap-lightbox/dist/angular-bootstrap-lightbox.js"></script>
-    <link rel="stylesheet" href="/node_modules/angular-bootstrap-lightbox/dist/angular-bootstrap-lightbox.css">
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+<!--     // <script src="/node_modules/angular-bootstrap-lightbox/dist/angular-bootstrap-lightbox.js"></script> -->
+<!--     <link rel="stylesheet" href="/node_modules/angular-bootstrap-lightbox/dist/angular-bootstrap-lightbox.css"> -->
 
     <link href="stylesheets/style.css" rel="stylesheet">
-    <link rel="shortcut icon" href="#" />
+    <link rel="shortcut icon" href="#" /> 
+
+    <script>
+      $(window).load(function() {
+      // Animate loader off screen
+      $(".se-pre-con").fadeOut("slow");
+    });
+    </script>
 
     <!-- Le styles -->
 
@@ -27,11 +35,27 @@
 
   <body>
     <side-main-menu-bar></side-main-menu-bar>
+
 <!--   <a href="/about">about</a> -->
   <!--     <div ng-controller="logoutController">
         <a ng-click='logout()' class="btn btn-default">Logout</a>
       </div> -->        <!-- Sidebar ng-controller='PanelController as panel'>-->
-      <div id='container'>  
+      <div id='container'> 
+        <div class="se-pre-con">
+          <img src="/images/Logo-white.png">
+          <div id="bottomLeftCorner">
+            <div id="corner1"></div>
+          </div>
+          <div id="bottomRightCorner">
+            <div id="corner2"></div>
+          </div>
+          <div id="topLeftCorner">
+            <div id="corner3"></div>
+          </div>
+          <div id="topRightCorner">
+            <div id="corner4"></div>
+          </div>
+        </div>
         <div ng-view></div>
 
       </div>  

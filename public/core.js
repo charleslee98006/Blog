@@ -3,7 +3,8 @@
 
 var blogList = angular.module('blog', ["xeditable","ngRoute", 'ngAnimate']);
 
-blogList.config(function($routeProvider) { 
+blogList.config(['$httpProvider','$routeProvider', function($httpProvider, $routeProvider) {
+        $httpProvider.interceptors.push('httpErrorResponseInterceptor'),
         $routeProvider
 
             // route for the home page
@@ -35,7 +36,7 @@ blogList.config(function($routeProvider) {
             //     }
             // })
             .otherwise({
-                redirectTo: '/'
+                templateUrl: '/views/404.html'
             });
 
             // route for the contact page
@@ -45,9 +46,40 @@ blogList.config(function($routeProvider) {
             // });
 // Read more at http:
 //www.tutorialsavvy.com/2013/08/understanding-partials-in-angularjs.html/#OUFiSgAgW8coMlqc.99
-});
+}]);
 
+blogList.factory('httpErrorResponseInterceptor', ['$q', '$location',
+  function($q, $location) {
+    return {
+      response: function(responseData) {
+        return responseData;
+      },
+      responseError: function error(response) {
+        switch (response.status) {
+          case 401:
+            $location.path('/login');
+            console.log("Erorr!!!");
+            break;
+          case 404:
+            console.log("Error2!");
+            $location.path('/404');
+            break;
+          default:
+            $location.path('/error');
+        }
 
+        return $q.reject(response);
+      }
+    };
+  }
+]);
+
+//Http Intercpetor to check auth failures for xhr requests
+blogList.config(['$httpProvider',
+  function($httpProvider) {
+    $httpProvider.interceptors.push('httpErrorResponseInterceptor');
+  }
+]);
 
 blogList.directive("sideMainMenuBar", function(){
     return{

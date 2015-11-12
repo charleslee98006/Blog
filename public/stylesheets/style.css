@@ -21,6 +21,16 @@ h1, p, h2, label{
     transition: 1s linear all;
     opacity: 0;
 }
+.sidebar-nav{
+    margin: 10px;
+}
+.rightSidePanel{
+    position: fixed;
+    right: 0px;
+    background: black;
+    height: 100%;
+    width: 260px;
+}
 .projectTeaserInfo{
     overflow: hidden;
     position: absolute;
@@ -54,7 +64,6 @@ h1, p, h2, label{
     height: auto; 
 }
 .col-md-4{
-    height: 600px;
     text-align: center;
     position: absolute;
     top: 40%;
@@ -432,6 +441,7 @@ position: absolute;
     margin: 5px;
     background: #c0c0c0;
     padding: 5px;
+    text-align: left; 
 }
 .year{
 /*    display: flex;
@@ -478,6 +488,7 @@ position: absolute;
 #login{
     height: 100vh;
     width: 100%;
+    overflow: hidden;
 }
 #addBlog{
     background: blue;

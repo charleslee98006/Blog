@@ -27,9 +27,13 @@ blogList.config(['$httpProvider','$routeProvider', function($httpProvider, $rout
             .when('/blogs/newBlogPost',{
                 templateUrl : 'views/newBlogPost.html'
             })
-            .when('/registerUser',{
-                templateUrl : 'views/registerUser.html'
+            .when('blogs/:blogPage',{
+                controller: 'RouteCtrl',
+                templateUrl: 'uirouter.html'
             })
+            // .when('/registerUser',{
+            //     templateUrl : 'views/registerUser.html'
+            // })
             // .when('/projectInfo/:worksId', {
             //     templateUrl: function(urlattr){
             //         return '/projectInfo/' + urlattr.worksId+'.html';
@@ -67,13 +71,17 @@ blogList.factory('httpErrorResponseInterceptor', ['$q', '$location',
           default:
             $location.path('/error');
         }
-
         return $q.reject(response);
       }
     };
   }
 ]);
-
+blogList.controller('RouteCtrl', function($scope,$routeParams) {
+    console.log("HERE???");
+    // create a message to display in our view 
+    $scope.page=$routeParams.pagename;
+    $scope.message = "(',')---I am on "+$routeParams.pagename +" page---(',')";
+  });
 //Http Intercpetor to check auth failures for xhr requests
 blogList.config(['$httpProvider',
   function($httpProvider) {
@@ -164,8 +172,8 @@ blogList.controller('RegUserController',
 blogList.controller('BlogController', 
     ['$scope','AuthService', '$http',
     function($scope, AuthService, $http){
-        
         //$scope.userStatus = true;
+        $scope.truefalse = true;
         $scope.getUserStatus = function(){
             return AuthService.getUserStatus();
         };

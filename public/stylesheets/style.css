@@ -521,8 +521,9 @@ position: absolute;
     width: 100%;
     max-width: 900px;
     height: 100%;
+    padding: 20px;
     width: 100vh;
-/*    height: 600px;*/
+    height: 100vh;
 }
 #login{
     height: 100vh;
@@ -579,7 +580,7 @@ position: absolute;
 }
 #bio a{
     color: white;
-        text-decoration: none;
+    text-decoration: none;
     display: inline-block;
     border-bottom: 2px solid white;    
     margin-right: 39px; 
@@ -593,6 +594,10 @@ position: absolute;
     border-bottom: 2px solid white;
     width: 50px;
     margin-right: 5px;
+}
+.projectTeaseImg{
+    width: 200px;
+    height: 125px;
 }
 #wrapper.toggled {
     padding-left: 250px;

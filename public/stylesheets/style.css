@@ -12,6 +12,10 @@ h1, p, h2, label{
 #mainMenu{
     height: 100%;
 }
+/*#projecTeaseCoursel{
+    width: 100%;
+    justify-content: center;
+}*/
 #projecTeaseCoursel h1{
     margin-bottom: 0px;
     text-align: center;
@@ -140,7 +144,7 @@ h1, p, h2, label{
 }
 .projects{
     display: flex;
-    justify-content: left;
+    justify-content: center;
 }
 .projectIcons{
     margin-top: 25px;
@@ -517,6 +521,7 @@ position: absolute;
     width: 100%;
     max-width: 900px;
     height: 100%;
+    width: 100vh;
 /*    height: 600px;*/
 }
 #login{
@@ -674,8 +679,19 @@ position: absolute;
     color: #fff;
     background: none;
 }
-#sidebar-wrapper {
+/* ----------- Non-Retina Screens ----------- */
+@media screen 
+  and (min-device-width: 1200px) 
+  and (max-device-width: 1600px) 
+  and (-webkit-min-device-pixel-ratio: 1) { 
+}
 
+/* ----------- Retina Screens ----------- */
+@media screen 
+  and (min-device-width: 1200px) 
+  and (max-device-width: 1600px) 
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (min-resolution: 192dpi) { 
 }
 /*@media{
     #wrapper {

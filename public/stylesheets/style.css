@@ -512,7 +512,7 @@ position: absolute;
 #container{
     background: black;
     position: absolute;
-	margin-left: 205px;
+	margin-left: 155px;
     padding: 10px;
     width: 100%;
     max-width: 900px;
@@ -598,8 +598,8 @@ position: absolute;
 }
 #sidebar-wrapper {
        position: fixed;
-            width: 200px;
-    z-index: 1000;
+       width: 150px;
+       z-index: 1000;
  
 /*    left: 10px;*/
     height: 100%;

@@ -1,13 +1,13 @@
 <div id="blogContent" ng-show="tab==3" ng-controller = "BlogController">
     <div id="blogHead">
         <h1>Blogs</h1>
-        <a href="/blogs/{{blog._id}}" id="addBlog" ng-click="newBlog()" ng-show="getUserStatus()">+</a>
+        <a href="#/blogs/newBlogPost" id="addBlog" ng-click="newBlog()" ng-show="getUserStatus()">+</a>
     </div>
     <div class="yearTile">
         <p class="year">{{blogs[0].date | date:'yyyy'}}</p>
         <div class="YearGroup">
             <div class="checkbox" ng-repeat="blog in blogs| orderBy: '-date'">
-                <a class="blogLink" href="/blogs/{{blog._id}}">
+                <a class="blogLink" href="#/blogs/{{blog._id}}">
                     <div class="blogTile">
                         <div class="contentBlog">
                             <div class="blogDate">

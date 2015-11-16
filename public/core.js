@@ -1,9 +1,10 @@
 'use strict';
 
 
-var blogList = angular.module('blog', ["xeditable","ngRoute", 'ngAnimate']);
+var blogList = angular.module('blog', ["xeditable","ngRoute", 'ngAnimate', 'ngResource']);
 
-blogList.config(['$httpProvider','$routeProvider', function($httpProvider, $routeProvider) {
+blogList.config(['$httpProvider','$routeProvider', '$locationProvider', function($httpProvider, $routeProvider, $locationProvider) {
+        // $locationProvider.html5Mode(true);
         $httpProvider.interceptors.push('httpErrorResponseInterceptor'),
         $routeProvider
 
@@ -25,11 +26,18 @@ blogList.config(['$httpProvider','$routeProvider', function($httpProvider, $rout
                 templateUrl : '/views/login.html'  
             })
             .when('/blogs/newBlogPost',{
-                templateUrl : 'views/newBlogPost.html'
+                templateUrl : '/views/newBlogPost.html'
             })
-            .when('blogs/:blogPage',{
-                controller: 'RouteCtrl',
-                templateUrl: 'uirouter.html'
+            .when('/blogs/:id',{
+                // templateUrl: '/views/about/aboutMe.html'
+                templateUrl: function($routeParams) {
+                        console.log($routeParams.id);
+                        return 'views/eachBlog.html';
+                }
+                    // console.log("ARM YU HERE!??");
+                    //  return '/page/'+$routeParams.route+'.tpl.html';
+                // },
+                // controller: 'PageController'
             })
             // .when('/registerUser',{
             //     templateUrl : 'views/registerUser.html'
@@ -42,7 +50,7 @@ blogList.config(['$httpProvider','$routeProvider', function($httpProvider, $rout
             .otherwise({
                 templateUrl: '/views/404.html'
             });
-
+            // $locationProvider.html5Mode(true);
             // route for the contact page
             // .when('/contact', {
             //     templateUrl : '/contact.html',
@@ -76,12 +84,13 @@ blogList.factory('httpErrorResponseInterceptor', ['$q', '$location',
     };
   }
 ]);
-blogList.controller('RouteCtrl', function($scope,$routeParams) {
-    console.log("HERE???");
-    // create a message to display in our view 
-    $scope.page=$routeParams.pagename;
-    $scope.message = "(',')---I am on "+$routeParams.pagename +" page---(',')";
-  });
+// blogList.controller('RouteCtrl', function($scope,$routeParams) {
+//     console.log("HERE???");
+//     // create a message to display in our view 
+//     $scope.page=$routeParams.pagename;
+//     $scope.message = "(',')---I am on "+$routeParams.pagename +" page---(',')";
+//   });
+
 //Http Intercpetor to check auth failures for xhr requests
 blogList.config(['$httpProvider',
   function($httpProvider) {
@@ -168,6 +177,28 @@ blogList.controller('RegUserController',
         }
 }]);
 
+blogList.controller("blogPageController", 
+    ['$scope', '$http', '$routeParams', '$resource',
+    function($scope, $http, $routeParams, $resource){
+        console.log("HERE I AM!!!"+ $routeParams.id);
+    var User = $resource('/api/blogs/'+$routeParams.id);
+    $scope.blogs = User.get({_id: $routeParams.id});
+    // $http({
+    //   method: 'GET',
+    //   url: '/api/blogs/',
+    //   params: { "_id": $routeParams.id }
+    // }).then(function successCallback(response) {
+    //     // this callback will be called asynchronously
+    //     // when the response is available
+    //     $scope.blogs = response.data;
+    //     //console.log(response);
+    //   }, function errorCallback(response) {
+    //     // called asynchronously if an error occurs
+    //     // or server returns response with an error status.
+    //     console.log('Error: ' + response);
+    //   });
+
+}]);
 
 blogList.controller('BlogController', 
     ['$scope','AuthService', '$http',
@@ -313,13 +344,15 @@ blogList.controller("projectTeasersController",
     //     return $location.hash(id);
     // };
     $scope.projectImgClicked = function(param){
+        // console.log(param);
+        // console.log(param.title);
         $scope.projectClicked = true;
-        $scope.title = $scope.projects[param].title;
-        $scope.img =$scope.projects[param].img;
-        $scope.text = $scope.projects[param].text;
-        $scope.link = $scope.projects[param].link;
-        console.log($scope.projects);
-        console.log($scope.projects[param].title);
+        $scope.title = param.title;
+        $scope.img =param.img;
+        $scope.text = param.text;
+        $scope.link = param.link;
+        // console.log($scope.projects);
+        // console.log($scope.projects[param].title);
         console.log(param);
     };
 
@@ -402,15 +435,18 @@ blogList.controller("projectPageController",
     //     return $location.hash(id);
     // };
     $scope.projectImgClicked = function(param){
+        // console.log(param);
         $scope.projectClicked = true;
-        $scope.title = $scope.projects[param].title;
-        $scope.img =$scope.projects[param].img;
-        $scope.text = $scope.projects[param].text;
-        $scope.link = $scope.projects[param].link;
-        console.log($scope.projects);
-        console.log($scope.projects[param].title);
-        console.log(param);
+        $scope.title = param.title;
+        $scope.img =param.img;
+        $scope.text = param.text;
+        $scope.link = param.link;
+        // console.log($scope.projects[param].title);
+
     };
+}]);
+blogList.run(['$route', function($route)  {
+  $route.reload();
 }]);     
 // blogList.run(function ($rootScope, $location, $route, AuthService) {
 //   $rootScope.$on('$routeChangeStart', function (event, next, current) {

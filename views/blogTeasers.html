@@ -8,6 +8,7 @@
               <div class="blogs" ng-repeat="blog in blogs | orderBy: '-date' | limitTo:3 "> 
   <!--                     <div ng-repeat="blog in blogs | limitTo:1">
                       </div> -->
+                     <a href="#/blogs/{{blog._id}}">
                       <div class="blogTile">
                         <div class="contentBlog">
                           <div class="blogDate">
@@ -21,6 +22,7 @@
                           </div>
                         </div>
                       </div>
+                    </a>
 
                     
   <!--                   <p>By:{{blog.author}}</p> -->

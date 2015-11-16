@@ -6,7 +6,8 @@ var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var morgan = require('morgan');             // log requests to the console (express4)
 var bodyParser = require('body-parser'); // pull information from HTML POST (express4)
-var methodOverride = require('method-override'); // simulate DELETE and PUT (express4)  
+var methodOverride = require('method-override'); // simulate DELETE and PUT (express4)
+var ngResource = require('ng-resource');  
 var Data = [];
 // Connect to the db
 mongoose.connect(("mongodb://heroku_vrzzvp36:eo8decui5g6tk3g071auck6b2h@ds045644.mongolab.com:45644/heroku_vrzzvp36"));
@@ -31,6 +32,7 @@ var routes = require('./routes/api.js');
 app.use('/node_modules', express.static(__dirname + '/node_modules')); //need this path to get angular.js
 app.use('/bower_components', express.static(__dirname + '/bower_components'));
 app.use('/views', express.static(__dirname+'/views'));
+app.use('/blogs', express.static(__dirname + '/blogs'));
 app.use(express.static('public'));
 
 
@@ -84,6 +86,10 @@ app.get('/', function(request, response){
 	console.log(response);	
   response.sendFile(__dirname + '/views/index.html');
 });
+// app.get('/blogs/', function(req , res){
+//   console.log("REACHING HERE! " +req.params.id);
+//   response.sendFile(__dirname + '/views/index.html');
+// });
  // // Handle 404
  //  app.use(function(req, res) {
  //      res.status(400);

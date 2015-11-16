@@ -25,7 +25,20 @@ module.exports = function(app) {
 			response.json(blogs);
 		});
 	});
-
+app.get('/api/blogs/:blog_id', function (req, res){
+    Movie.findOne({
+    	_id: req.params.blog_id
+    }, function(err, blog) {
+	    if (err)
+	        res.send(err);
+	            // get and return all the todos after you create another
+	    Movie.find(function(err, blogs) {
+	        if (err)
+	            res.send(err)
+	        res.json(blogs[0]);
+	    });
+	});
+});
     app.post('/api/blogs', function(req, res) {
 
     	var body = "";
@@ -62,6 +75,7 @@ module.exports = function(app) {
 	    });
 
     });
+
   app.put('/api/blogs/:blog_id', function (req, res) {
 	  //var id = req.params.id;
 	  //console.log("PRINTING ID:!!!!" + id);

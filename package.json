@@ -10,7 +10,7 @@
   "private": true,
   "scripts": {
     "postinstall": "grunt jshint",
-    "start": "node server.js"
+    "start": "node app.js"
   },
   "dependencies": {
     "express": "~4.13.1",

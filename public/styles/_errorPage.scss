@@ -1,0 +1,24 @@
+#error{
+/*    position: absolute;*/
+    display: block;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    vertical-align: middle;
+}
+#errorPage{
+    background: white;
+    max-height: 600px;
+    text-align: center;
+    position: absolute;
+    top: 20%;
+    left: 30%;
+    margin: 20px;
+    padding: 20px;
+    vertical-align: middle;
+    box-shadow: 2px 2px 2px 2px #888888;
+/*    border-radius: 25px;*/
+}
+#errorPage > p h1{
+    color: black;
+}

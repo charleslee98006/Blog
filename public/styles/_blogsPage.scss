@@ -1,0 +1,118 @@
+#blogContent{
+    height: auto;
+    
+}
+#blogContent h1{
+    text-align: center;
+}
+.day{
+    font-size: 30px;
+    margin:0px;
+    width: 50px;
+    background: #808080;
+    color: white;
+}
+.month{
+    font-size: 20px;
+    margin: 0px;
+    width: 50px;
+    background: #808080;
+    color: white;
+}
+.time{
+    margin: 0px;
+    background: #778899;
+    color: white;
+    width: 60px;
+    padding: 5px;
+}
+.title{
+    margin: 0px;
+}
+.teasers{
+    margin: 0px;
+}
+.contentBlog{
+    display: flex;
+    justify-content: left;
+    /*display: inline-block;*/
+}
+.YearGroup{
+    width: 100%;
+    max-width: 875px;
+}
+.blogTile{
+    margin: 5px;
+    background: #c0c0c0;
+    padding: 5px;
+    text-align: left;
+}
+.year{
+/*    display: flex;
+    justify-content: left;*/
+    font-size: 20px;
+    text-align: left;
+    margin-top: auto;
+    margin-bottom: auto;
+    -webkit-writing-mode: vertical-rl;
+    -webkit-text-orientation: upright;
+}
+.yearTile{
+    display: flex;    
+    margin-bottom: 10px;
+    background: #536267;
+    width: 100%;
+    max-width: 900px;
+/*    border-radius: 10px;   */ 
+}
+.blogDate{
+    margin-right: 5px;
+    text-align: center;
+}
+/*.blogsInfo{
+    display: block;
+    float: left;
+}*/
+.blogs a{
+    text-decoration: none;
+}
+.blogLink{
+    text-decoration: none;
+}
+.blogLink:hover{
+    transform: translate(20px, 0px);
+}
+#addBlog{
+    background: blue;
+    position:absolute;
+    right: 0px;
+    z-index: 999;
+    font-size: 30px;
+    text-decoration: none;
+    color: white;
+    margin: 0px 10px 20px 0px;
+    top: 30px;
+}
+#addBlog:hover{
+    opacity: 0.5;
+}
+.deleteBlog {
+    background: white;
+    color: red;
+    width: 10px;
+    padding: 5px;
+    position: absolute;
+    right: 20px;
+}
+.deleteBlog:hover{
+    opacity: 0.5;
+}
+#blogTitle{
+        padding: 10px;
+    background: gray;
+    font-size: 16px;
+}
+#blogDescription p{
+    padding: 20px;
+    font-size: 16px;
+}

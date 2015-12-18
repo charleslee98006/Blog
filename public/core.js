@@ -1,6 +1,3 @@
-'use strict';
-
-
 var blogList = angular.module('blog', ["xeditable","ngRoute", 'ngAnimate', 'ngResource']);
 
 blogList.config(['$httpProvider','$routeProvider', '$locationProvider', function($httpProvider, $routeProvider, $locationProvider) {
@@ -34,11 +31,10 @@ blogList.config(['$httpProvider','$routeProvider', '$locationProvider', function
                         console.log($routeParams.id);
                         return 'views/eachBlog.html';
                 }
-                    // console.log("ARM YU HERE!??");
-                    //  return '/page/'+$routeParams.route+'.tpl.html';
-                // },
-                // controller: 'PageController'
             })
+            .otherwise({
+                templateUrl:'/views/404.html'});
+}]);
             // .when('/registerUser',{
             //     templateUrl : 'views/registerUser.html'
             // })
@@ -47,9 +43,7 @@ blogList.config(['$httpProvider','$routeProvider', '$locationProvider', function
             //         return '/projectInfo/' + urlattr.worksId+'.html';
             //     }
             // })
-            .otherwise({
-                templateUrl: '/views/404.html'
-            });
+   
             // $locationProvider.html5Mode(true);
             // route for the contact page
             // .when('/contact', {
@@ -58,7 +52,7 @@ blogList.config(['$httpProvider','$routeProvider', '$locationProvider', function
             // });
 // Read more at http:
 //www.tutorialsavvy.com/2013/08/understanding-partials-in-angularjs.html/#OUFiSgAgW8coMlqc.99
-}]);
+
 
 blogList.factory('httpErrorResponseInterceptor', ['$q', '$location',
   function($q, $location) {

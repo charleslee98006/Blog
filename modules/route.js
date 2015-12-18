@@ -34,7 +34,7 @@ app.get('/api/blogs/:blog_id', function (req, res){
 	            // get and return all the todos after you create another
 	    Movie.find(function(err, blogs) {
 	        if (err)
-	            res.send(err)
+	            res.send(err);
 	        res.json(blogs[0]);
 	    });
 	});
@@ -68,7 +68,7 @@ app.get('/api/blogs/:blog_id', function (req, res){
 	            // get and return all the todos after you create another
 	            Movie.find(function(err, blogs) {
 	                if (err)
-	                    res.send(err)
+	                    res.send(err);
 	                res.json(blogs);
 	            });
 	        });
@@ -100,7 +100,7 @@ app.get('/api/blogs/:blog_id', function (req, res){
             // get and return all the todos after you create another
             Movie.find(function(err, blogs) {
                 if (err)
-                    res.send(err)
+                    res.send(err);
                 res.json(blogs);
             });
         });
@@ -126,10 +126,10 @@ app.get('/api/blogs/:blog_id', function (req, res){
             // get and return all the todos after you create another
             Movie.find(function(err, blogs) {
                 if (err)
-                    res.send(err)
+                    res.send(err);
                 res.json(blogs);
             });
         });
     });
-}
+};
 // module.exports = router;

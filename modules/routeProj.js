@@ -56,7 +56,7 @@ module.exports = function(app) {
 	            // get and return all the todos after you create another
 	            projects.find(function(err, blogs) {
 	                if (err)
-	                    res.send(err)
+	                    res.send(err);
 	                res.json(blogs);
 	            });
 	        });
@@ -87,7 +87,7 @@ module.exports = function(app) {
             // get and return all the todos after you create another
             projects.find(function(err, blogs) {
                 if (err)
-                    res.send(err)
+                    res.send(err);
                 res.json(blogs);
             });
         });
@@ -113,9 +113,9 @@ module.exports = function(app) {
             // get and return all the todos after you create another
             projects.find(function(err, blogs) {
                 if (err)
-                    res.send(err)
+                    res.send(err);
                 res.json(blogs);
             });
         });
     });
-}
+};

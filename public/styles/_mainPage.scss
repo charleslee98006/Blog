@@ -69,17 +69,3 @@
     width: 100px;
     height: 200px;
 }
-#sidebar-wrapper {
-       position: fixed;
-       width: 150px;
-       z-index: 1000;
- 
-/*    left: 10px;*/
-    height: 100%;
-    overflow-y: hidden; 
-    background: #000;
-    -webkit-transition: all 0.5s ease;
-    -moz-transition: all 0.5s ease;
-    -o-transition: all 0.5s ease;
-    transition: all 0.5s ease;
-}

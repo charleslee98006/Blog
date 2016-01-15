@@ -1,6 +1,7 @@
 
 $text-font: white;
 $font-style: "Lucida Grande", Helvetica, Arial, sans-serif;
+$sidebar-Width: 150px;
 @import "_projectsPage";
 @import "_loginPage";
 @import "_blogsPage";
@@ -115,22 +116,72 @@ h1, p, h2, label{
     position: absolute;
     margin-right: -250px;
 }
+#sidebar-wrapper {
+       position: fixed;
+       width: $sidebar-Width;
+       z-index: 1000;
+ 
+/*    left: 10px;*/
+    height: 100%;
+    overflow-y: hidden; 
+    background: #000;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+/* -------Mobile Devices------ */
+@media screen and (max-width:400px){
+        #sidebar-wrapper {
+            position: absolute;
+            width:100%;
+            height: 400px;
+        }
+        .sidebar-nav{
+        text-align: center;
+        margin: 0px;
+        }
+        #container{
+            top: 410px;
+            margin-left:0px;
+            width: 100%;
+            padding: 0px;
+        }
+        p{
+            padding:10px;
+        }
+        #bio{
+            margin-top: 20px;
+        }
+        // {
+        //     margin-top: 20px;
+        // }
+        // .sidebar-nav img{
+        //     text-align: center;
+        // }
+    }
+    @media screen and (min-width:400px){
+        #sidebar-wrapper {
+            position: fixed;
+        }
+    }
 
 
 /* ----------- Non-Retina Screens ----------- */
-@media screen 
-  and (min-device-width: 1200px) 
-  and (max-device-width: 1600px) 
-  and (-webkit-min-device-pixel-ratio: 1) { 
-}
+// @media screen 
+//   and (min-device-width: 1200px) 
+//   and (max-device-width: 1600px) 
+//   and (-webkit-min-device-pixel-ratio: 1) { 
+// }
 
-/* ----------- Retina Screens ----------- */
-@media screen 
-  and (min-device-width: 1200px) 
-  and (max-device-width: 1600px) 
-  and (-webkit-min-device-pixel-ratio: 2)
-  and (min-resolution: 192dpi) { 
-}
+// ----------- Retina Screens -----------
+// @media screen 
+//   and (min-device-width: 1200px) 
+//   and (max-device-width: 1600px) 
+//   and (-webkit-min-device-pixel-ratio: 2)
+//   and (min-resolution: 192dpi) { 
+// }
 /*@media{
     #wrapper {
         padding-left: 250px;

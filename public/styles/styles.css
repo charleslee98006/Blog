@@ -108,13 +108,19 @@
   opacity: 0.5; }
 
 .projectInfo {
-  margin-top: 20px;
+  margin: 20px 20px 0px 0px;
   background: white;
-  padding: 10px;
-  max-height: 200px; }
+  padding: 10px; }
 
 .projectInfo p, h2 {
   color: black; }
+
+.projectInfo a {
+  display: inline-block;
+  max-width: 90%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap; }
 
 #login {
   height: 100vh;
@@ -539,7 +545,7 @@ body {
   width: 100%;
   height: 100%; }
 
-h1, p, h2, label {
+h1, p, label {
   color: white; }
 
 /*a {
@@ -641,7 +647,7 @@ h1, p, h2, label {
   transition: all 0.5s ease; }
 
 /* -------Mobile Devices------ */
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 700px) {
   #sidebar-wrapper {
     position: absolute;
     width: 100%;
@@ -662,7 +668,7 @@ h1, p, h2, label {
 
   #bio {
     margin-top: 20px; } }
-@media screen and (min-width: 400px) {
+@media screen and (min-width: 700px) {
   #sidebar-wrapper {
     position: fixed; } }
 /* ----------- Non-Retina Screens ----------- */

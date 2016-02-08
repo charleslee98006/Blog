@@ -1,6 +1,6 @@
 <div id="projecTeaseCoursel" ng-controller = "projectTeasersController">
 	<h1>Projects</h1>
-	<div class= "projects">
+	<div class= "projects mobile-Mode">
 		<div class="projectIcons" ng-repeat="project in projects | limitTo:3 | orderBy: '-date'" ng-init="count=0">
 			<!-- <a ng-click="Lightbox.openModal([{'url':'{{project.img}},'caption': '{{project.text}}', 'thumbUrl': '{{project.img}}' ])"> -->
 			<a ng-click=projectImgClicked(project)>

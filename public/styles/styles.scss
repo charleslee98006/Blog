@@ -171,7 +171,24 @@ h1, p, label{
 }
 @media screen and (max-width:650px){
     .projects{
-        // display: inline;
+        display: inline-block;
+    }
+    .projectTitle{
+        width: 100%;
+    }
+    .projectTitle > p{
+        width: 100%;
+    }
+    #projecTeaseCoursel{
+        height: 100%;
+    }
+    .projectIcons{
+        height: 100%;
+        width: 100%;
+    }
+    .projectIcons > a > img {
+        width: 100%;
+        height: 100%;
     }
 }
 

@@ -33,7 +33,7 @@
     justify-content: center;
 }
 .projectIcons{
-    height: 125px;
+    // height: 125px;
 }
 .projectIcons a{
     height: 100%;
@@ -73,13 +73,14 @@
   opacity: 0;
 }
 .projectTitle{
-    position: absolute;
+    background: black;
+    // position: absolute;
     padding: 0px;
     margin: 0px;
     z-index: 998;
 }
 .projectTitle > p{
-    background: black;
+
     color: white;
     margin: 0px;
     padding: 5px;

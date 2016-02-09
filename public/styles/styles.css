@@ -191,7 +191,11 @@
 
 .blogDate {
   margin-right: 5px;
-  text-align: center; }
+  text-align: center;
+  max-height: 100px; }
+
+.blogTease {
+  width: 100%; }
 
 /*.blogsInfo{
     display: block;
@@ -535,6 +539,10 @@
   position: absolute;
   right: 0px;
   width: 50px; }
+
+html {
+  width: 0px;
+  height: 0px; }
 
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;

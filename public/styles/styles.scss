@@ -10,7 +10,10 @@ $sidebar-Width: 150px;
 @import "_mainPage";
 @import "_loadingAnimation";
 
-
+html{
+    width: 0px;
+    height: 0px;
+}
 
 body{
   font: 14px $font-style;

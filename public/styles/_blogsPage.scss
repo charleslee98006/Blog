@@ -40,9 +40,12 @@
 .YearGroup{
     width: 100%;
     max-width: 875px;
+    margin-left:10px;
+}
+.blogs{
+
 }
 .blogTile{
-    margin: 5px;
     background: #c0c0c0;
     padding: 5px;
     text-align: left;
@@ -61,7 +64,6 @@
     display: flex;    
     margin-bottom: 10px;
     background: #536267;
-    width: 100%;
     max-width: 900px;
 /*    border-radius: 10px;   */ 
 }
